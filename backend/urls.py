@@ -30,14 +30,15 @@ urlpatterns = [
     url(r'^auth/', include('apps.auth_jwt.urls', namespace='auth_jwt')),
 
     #
+    url(r'^attribute/', include('apps.attribute.urls', namespace='attribute')),
+
+    #
+    url(r'^bin/', include('apps.data_bin.urls', namespace='bin')),
+
+    #
     url(r'^elastic/', include('apps.elastic.urls', namespace='elastic')),
 
     #
-    url(r'^data-bin/', include('apps.data_bin.urls', namespace='data_bin')),
+    url(r'^elastic-bin/', include('apps.data_bin_elastic.urls', namespace='elastic-bin')),
 
-    #
-    url(r'^elastic-bins/', include('apps.data_bin_elastic.urls', namespace='elastic')),
-
-    #
-    url(r'^attribute/', include('apps.attribute.urls', namespace='attribute')),
 ]
