@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.shortcuts import get_object_or_404
 from rest_framework import generics
 
@@ -17,6 +18,8 @@ class BinItemListView(generics.ListAPIView):
         bin_pk = self.kwargs['bin_pk']
         bin = get_object_or_404(queryset, pk=bin_pk)
         user = self.request.user
+        if user != bin.user:
+            raise Http404("No BinItem matches the given query.")
         return BinItem.objects.filter(bin=bin)
 
 
@@ -29,7 +32,14 @@ class BinItemView(generics.RetrieveAPIView):
 
     def get_queryset(self):
         pk = self.kwargs['pk']
+        user = self.request.user
+        queryset = BinItem.objects.all()
+        binItem = get_object_or_404(queryset, pk=pk)# BinItem.objects.get(pk=pk)
+
+        # check user
+        if user != binItem.bin.user:
+            raise Http404("No BinItem matches the given query.")
         #queryset = BinItem.objects.all()
         #bin_item = get_object_or_404(queryset, pk=pk)
-        #user = self.request.user
+        #BinItem.objects.filter(pk=pk)
         return BinItem.objects.filter(pk=pk)

@@ -39,11 +39,12 @@ class BinResetView(GenericAPIView):
         queryset = Bin.objects.all()
         bin = get_object_or_404(queryset, pk=pk)
 
-        # TODO add removing BinItems belong to Bin
+        # add removing BinItems belong to Bin
         BinItem.objects.filter(bin=bin).delete()
 
         serializer = BinSerializer(bin)
         return Response(serializer.data)
+
 
 """
 class BinRetriveUpdateView(generics.RetrieveUpdateAPIView):
