@@ -7,7 +7,6 @@ from rest_framework.response import Response
 
 from apps.auth_jwt.permissions import PublicEndpoint
 
-from apps.data_bin.mixins import ElasticBinItemMixin
 from apps.log.mixins import RequestLogViewMixin
 
 from backend import settings

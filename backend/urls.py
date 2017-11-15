@@ -33,7 +33,7 @@ urlpatterns = [
     url(r'^elastic/', include('apps.elastic.urls', namespace='elastic')),
 
     #
-    url(r'^bins/', include('apps.data_bin.urls', namespace='data_bin')),
+    url(r'^data-bin/', include('apps.data_bin.urls', namespace='data_bin')),
 
     #
     url(r'^elastic-bins/', include('apps.data_bin_elastic.urls', namespace='elastic')),

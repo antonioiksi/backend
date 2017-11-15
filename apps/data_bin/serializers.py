@@ -6,7 +6,7 @@ from .models import Bin, BinItem
 class BinSerializer(serializers.ModelSerializer):
     class Meta:
         model = Bin
-        fields = ('user','name',)
+        fields = ('id', 'user','name',)
 
     def validate(self, data):
         """
@@ -19,7 +19,7 @@ class BinSerializer(serializers.ModelSerializer):
 class BinItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = BinItem
-        fields = ('bin','query','data','mapping',)
+        fields = ('id', 'bin', 'url', 'query','data','mapping',)
 
     def validate(self, data):
         """
@@ -28,3 +28,8 @@ class BinItemSerializer(serializers.ModelSerializer):
         if len(data['data']) < 2:
             raise serializers.ValidationError("'data' must contain more than 2 symbols")
         return data
+
+class BinItemSimpleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BinItem
+        fields = ('id', 'url', 'query',)
