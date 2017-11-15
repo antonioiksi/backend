@@ -17,6 +17,10 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.views import generic
 from rest_framework.schemas import get_schema_view
+from rest_framework.documentation import include_docs_urls
+from rest_framework_swagger.views import get_swagger_view
+
+schema_view = get_swagger_view(title='Rest API docs with Swagger')
 
 urlpatterns = [
     # redirect
@@ -24,6 +28,9 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     url(r'^api/$', get_schema_view()),
+
+    url(r'^docs/', include_docs_urls(title='Rest API docs')),
+    url(r'^docs/swagger/', schema_view),
 
     # JWT authentification
     url(r'^auth/', include('rest_framework.urls', namespace='rest_framework')),
