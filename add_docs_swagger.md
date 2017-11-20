@@ -1,5 +1,9 @@
 #Documenting API with Swagger
+[https://swagger.io/](https://swagger.io/)
+
 [https://github.com/marcgibbons/django-rest-swagger](https://github.com/marcgibbons/django-rest-swagger)
+
+[https://django-rest-swagger.readthedocs.io/en/latest/settings/](https://django-rest-swagger.readthedocs.io/en/latest/settings/)
 ##Installation
 ### install package
 `pip install django-rest-swagger`
@@ -27,3 +31,16 @@ urlpatterns = [
 ]
 ```
 
+### add swagger settings
+```python
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'basic': {
+            'type': 'basic'
+        }
+    },
+}
+
+LOGIN_URL = 'rest_framework:login'
+LOGOUT_URL = 'rest_framework:logout'
+```

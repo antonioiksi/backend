@@ -42,7 +42,7 @@ class DrillSearchView(RequestLogViewMixin, views.APIView):
     """
 
     """
-    #permission_classes = (PublicEndpoint,)
+    permission_classes = (PublicEndpoint,)
 
     def post(self, request, *args, **kwargs):
         # TODO add checking input param http://json-schema.org/

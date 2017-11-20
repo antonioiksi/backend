@@ -2,6 +2,7 @@ import json
 import socket
 import time
 import datetime
+from pprint import pprint
 
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
@@ -72,7 +73,7 @@ class ElasticBinItemMiddleware(object):
 
         query = json.loads(request.body.decode("utf-8"))
         url = request.path_info
-
+        #pprint(data)
         item = BinItem(bin=bin, data=data, mapping=mapping, query=query, url=url)
         item.save()
 

@@ -22,6 +22,8 @@ class BinItemListView(generics.ListAPIView):
             raise Http404("No BinItem matches the given query.")
         return BinItem.objects.filter(bin=bin)
 
+class BinItemDeleteView(generics.DestroyAPIView):
+    serializer_class = BinItemSerializer
 
 class BinItemView(generics.RetrieveAPIView):
     """

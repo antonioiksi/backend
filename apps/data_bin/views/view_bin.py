@@ -1,5 +1,6 @@
 from pprint import pprint
 
+from django.db.models import Count
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
@@ -21,7 +22,12 @@ class BinListView(generics.ListAPIView):
 
     def get_queryset(self):
         user = self.request.user
+
         return Bin.objects.filter(user=user)
+
+        #.annotate(
+        #    item_count=Count('binitem'),
+        #)
 
 
 class BinCreateView(generics.CreateAPIView):
