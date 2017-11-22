@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'apps.elastic',
     'apps.log',
     'apps.attribute',
+    'apps.attribute_elastic',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -63,7 +64,7 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 }
 

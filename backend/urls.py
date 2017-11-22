@@ -38,6 +38,7 @@ urlpatterns = [
 
     #
     url(r'^attribute/', include('apps.attribute.urls', namespace='attribute')),
+    url(r'^attribute/', include('apps.attribute_elastic.urls', namespace='attribute-elastic')),
 
     #
     url(r'^bin/', include('apps.data_bin.urls', namespace='bin')),

@@ -60,6 +60,7 @@ class DrillSearchView(RequestLogViewMixin, views.APIView):
 
         mappings_res = {}
 
+
         hits_arr = search['hits']['hits']
         for hit in hits_arr:
             index_name = hit['_index']
@@ -72,7 +73,7 @@ class DrillSearchView(RequestLogViewMixin, views.APIView):
                     return Response('app_elastic error getting mapping: %s' % e, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
                 mapping = mapping[index_name]['mappings']
-
+                
                 tables_res={}
                 for table_name in mapping:
                     table_mapping = mapping[table_name]
