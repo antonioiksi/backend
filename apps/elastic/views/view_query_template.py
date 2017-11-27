@@ -7,19 +7,8 @@ from apps.elastic.serializers import QueryTemplateSerializer
 
 class QueryTemplateListView(generics.ListAPIView):
     """
-    Return 'Bin' list for current user
+    Return list of QueryTemplate objects
     """
     permission_classes = (PublicEndpoint,)
     serializer_class = QueryTemplateSerializer
     queryset = QueryTemplate.objects.all()
-
-    #permission_classes = (IsAdminUser,)
-
-    #def get_queryset(self):
-        #user = self.request.user
-
-        #return Bin.objects.filter(user=user)
-
-        #.annotate(
-        #    item_count=Count('binitem'),
-        #)

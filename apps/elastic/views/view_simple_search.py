@@ -24,11 +24,21 @@ class SimpleSearchView(RequestLogViewMixin, views.APIView):
         #js = serializer.validated_data
         # TODO add checking input param http://json-schema.org/
 
-        r = requests.post(settings.ELASTIC_SEARCH_URL+"/_search", json.dumps(request.data))
-        data = r.json()
+        r = requests.post(settings.ELASTIC_SEARCH_URL+"/_search?size="+settings.ELASTIC_SEARCH_RESULT_NUMBER,
+                          json.dumps(request.data))
+        search = r.json()
+
+        count = 1
+        while (count < 999):
+            print('The count is:', count)
+            count = count + 1
+
         #source_arr = [x['_source'] for x in data['hits']['hits']]
         if r.status_code == 200:
-            return Response( data['hits'], status=status.HTTP_200_OK)
+            result = {}
+            result['data'] = search['hits']['hits']
+
+            return Response( result, status=status.HTTP_200_OK)
         else:
             return Response('app_elastic error', status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         #raise APIException("There was a problem!")

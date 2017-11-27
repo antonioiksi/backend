@@ -1,9 +1,10 @@
 from django.conf.urls import url
 
-from .views import DataBinDrillSearchView
+from .views import DataBinDrillSearchView, DataBinSimpleSearchView
 
 urlpatterns = [
 
-    url(r'^drill-search/$', DataBinDrillSearchView.as_view(), name='drill-search'),
+    url(r'^simple-search/$', DataBinSimpleSearchView.as_view(), name='simple-search'),
+    url(r'^mapped-search/$', DataBinDrillSearchView.as_view(), name='mapped-search'),
 
 ]

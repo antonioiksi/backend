@@ -48,7 +48,8 @@ class DrillSearchView(RequestLogViewMixin, views.APIView):
         # TODO add checking input param http://json-schema.org/
 
         try:
-            es_search = requests.post(settings.ELASTIC_SEARCH_URL + "/_search", json.dumps(request.data))
+            es_search = requests.post(settings.ELASTIC_SEARCH_URL + "/_search?size="+settings.ELASTIC_SEARCH_RESULT_NUMBER,
+                                      json.dumps(request.data))
             #es_search = requests.get(settings.ELASTIC_SEARCH_URL + "/_search")
             search = es_search.json()
             # output_dict = [x for x in data if x['type'] == '1']
@@ -80,7 +81,8 @@ class DrillSearchView(RequestLogViewMixin, views.APIView):
                     #d = mapping[index_name]['mappings']['act']['properties']
                     #tables_mapping = [mapping[key] for key in mapping]
                     temp_dict = table_mapping['properties']
-                    field_arr = [temp_dict[key] for key in temp_dict if temp_dict[key].get('fields') is not None]
+
+                    field_arr = {key:temp_dict[key] for key in temp_dict if temp_dict[key].get('fields') is not None}
 
                     tables_res[table_name] = field_arr
 

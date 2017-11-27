@@ -154,6 +154,7 @@ STATIC_URL = '/static/'
 
 # app_elastic
 ELASTIC_SEARCH_URL = 'http://localhost:9200'
+ELASTIC_SEARCH_RESULT_NUMBER = '50'
 
 
 SWAGGER_SETTINGS = {

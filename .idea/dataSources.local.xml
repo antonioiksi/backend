@@ -10,5 +10,13 @@
       <user-name>user171114</user-name>
       <introspection-schemas>user171114:public</introspection-schemas>
     </data-source>
+    <data-source name="Django default" uuid="fd97dc85-36f4-4377-8dc5-7166c15e17bf">
+      <database-info product="PostgreSQL" version="10.0" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.1.1">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <user-name>user171114</user-name>
+      <introspection-schemas>user171114:public</introspection-schemas>
+    </data-source>
   </component>
 </project>
