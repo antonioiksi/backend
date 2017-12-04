@@ -52,6 +52,21 @@ class BinResetView(GenericAPIView):
         return Response(serializer.data)
 
 
+class BinActivateView(views.APIView):
+
+    def get(self, request, *args, **kwargs):
+        name = self.kwargs['name']
+        user = self.request.user
+
+        bin = Bin.objects.get(name=name, user=user)
+        Bin.objects.filter(user=user).update(active=False)
+        bin.active = True
+        bin.save()
+        serializer = BinSerializer(bin)
+        #return Response(json.dumps( serializer.data, ensure_ascii=False), status=status.HTTP_200_OK)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
 """
 class BinRetriveUpdateView(generics.RetrieveUpdateAPIView):
     queryset = Bin.objects

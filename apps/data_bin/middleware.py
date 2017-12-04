@@ -58,11 +58,19 @@ class ElasticBinItemMiddleware(object):
             user = User.objects.get(id=user_id)
         #response.data
         try:
-            bin = Bin.objects.get(name='default',user=user)
+            bin = Bin.objects.get(active=True, user=user)
         except ObjectDoesNotExist:
-            bin = Bin(user=user,
-                      name='default')
-            bin.save()
+            try:
+                bin = Bin.objects.get(name='default', user=user)
+                Bin.objects.filter(user=user).update(active=False)
+                bin.active = True
+                bin.save()
+            except ObjectDoesNotExist:
+                bin = Bin(user=user,
+                          name='default',
+                          active=True)
+
+
         #Bin.objects.filter(name='default',user=user.pk)
 
         jsonData = response.data

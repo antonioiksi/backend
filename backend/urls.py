@@ -45,6 +45,7 @@ urlpatterns = [
 
     #
     url(r'^elastic/', include('apps.elastic.urls', namespace='elastic')),
+    url(r'^elastic/settings/', include('apps.elastic.apps.elastic_settings.urls', namespace='elastic_settings')),
 
     #
     url(r'^elastic-bin/', include('apps.data_bin_elastic.urls', namespace='elastic-bin')),

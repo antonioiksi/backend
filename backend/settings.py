@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'apps.log',
     'apps.attribute',
     'apps.attribute_elastic',
+    'apps.elastic.apps.elastic_settings',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True

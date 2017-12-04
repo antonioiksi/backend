@@ -9,6 +9,7 @@ class Bin(models.Model):
     """
     user = models.ForeignKey('auth.User',null=True, blank=True, default=None)
     name = models.CharField(u'Name', blank=False, null=False, max_length=100)
+    active = models.BooleanField(u'Active', null=False, blank=False, default=False)
 
     def __str__(self):
         return "Bin %s: user %s" % (self.name, self.user)

@@ -22,10 +22,34 @@ class BinItemListView(generics.ListAPIView):
             raise Http404("No BinItem matches the given query.")
         return BinItem.objects.filter(bin=bin)
 
+
 class BinItemDeleteView(generics.DestroyAPIView):
     serializer_class = BinItemSerializer
 
+
 class BinItemView(generics.RetrieveAPIView):
+    """
+    Return 'Bin' list for current user
+    """
+    serializer_class = BinItemSerializer
+    #permission_classes = (IsAdminUser,)
+
+    def get_queryset(self):
+        pk = self.kwargs['pk']
+        user = self.request.user
+        queryset = BinItem.objects.all()
+        binItem = get_object_or_404(queryset, pk=pk)# BinItem.objects.get(pk=pk)
+
+        # check user
+        if user != binItem.bin.user:
+            raise Http404("No BinItem matches the given query.")
+        #queryset = BinItem.objects.all()
+        #bin_item = get_object_or_404(queryset, pk=pk)
+        #BinItem.objects.filter(pk=pk)
+        return BinItem.objects.filter(pk=pk)
+
+
+class BinItemFlatView(generics.RetrieveAPIView):
     """
     Return 'Bin' list for current user
     """
