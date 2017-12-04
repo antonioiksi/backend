@@ -62,9 +62,12 @@ class BinActivateView(views.APIView):
         Bin.objects.filter(user=user).update(active=False)
         bin.active = True
         bin.save()
-        serializer = BinSerializer(bin)
+
+        list = [BinSerializer(bin).data for bin in Bin.objects.filter(user=user)]
+        #serializer = BinSerializer(bin)
         #return Response(json.dumps( serializer.data, ensure_ascii=False), status=status.HTTP_200_OK)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        #return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(list, status=status.HTTP_200_OK)
 
 
 """
