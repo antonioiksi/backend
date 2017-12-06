@@ -1,0 +1,22 @@
+[
+  {
+    "model": "data_graph.graphobject",
+    "pk":1,
+    "fields": {
+      "user_id": 1,
+      "name": "person",
+      "title": "личность",
+      "fields": ["play_name"]
+    }
+  },
+  {
+    "model": "data_graph.graphobject",
+    "pk":2,
+    "fields": {
+      "user_id": 1,
+      "name": "phone",
+      "title": "телефон",
+      "fields": ["phone"]
+    }
+  }
+]

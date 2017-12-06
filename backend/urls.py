@@ -42,7 +42,9 @@ urlpatterns = [
 
     #
     url(r'^bin/', include('apps.data_bin.urls', namespace='bin')),
+    url(r'^graph/', include('apps.data_graph.urls', namespace='graph')),
 
+    url(r'^bin-graph/', include('apps.data_bin_data_graph.urls', namespace='bin-graph')),
     #
     url(r'^elastic/', include('apps.elastic.urls', namespace='elastic')),
     url(r'^elastic/settings/', include('apps.elastic.apps.elastic_settings.urls', namespace='elastic_settings')),

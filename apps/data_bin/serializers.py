@@ -13,7 +13,7 @@ class BinSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Bin
-        fields = ('id', 'user','name', 'active', 'item_count', 'items_count')
+        fields = ('id', 'user', 'name', 'active', 'item_count', 'items_count')
 
     def validate(self, data):
         """
@@ -41,7 +41,9 @@ class BinItemSerializer(serializers.ModelSerializer):
         return data
 
 
+
 class BinItemSimpleSerializer(serializers.ModelSerializer):
     class Meta:
         model = BinItem
         fields = ('id', 'url', 'query',)
+

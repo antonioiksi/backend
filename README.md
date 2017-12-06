@@ -114,14 +114,18 @@ TODO add description
 
 
 ## Create User Settings App
+```commandline
 mkdir -p apps/user_settings
 ./manage.py startapp user_settings apps/user_settings
+```
 
 
 
-
-### loading initial data
+### loading initial data, 
+if elastic_settings.json is in fixtures dir
+```commandline
 ./manage.py loaddata elastic_settings
+```
 
 ## 5 STEP Load data
 
@@ -160,6 +164,28 @@ MIDDLEWARE = [
 
 
 ## Add Class with free access privilegies to rest api
+
+
+# TESTING
+run all tests
+```commandline
+./manage.py test
+```
+
+run tests from app
+```commandline
+./manage.py test apps.data_graph
+```
+
+run tests module
+```commandline
+./manage.py test apps.data_graph.tests.DataGraphModelsTest
+```
+
+run test method
+```commandline
+./manage.py test apps.data_graph.tests.DataGraphModelsTest.test_data
+```
 
 
 

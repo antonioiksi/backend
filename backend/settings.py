@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'apps.attribute',
     'apps.attribute_elastic',
     'apps.elastic.apps.elastic_settings',
+    'apps.data_graph',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -111,7 +112,10 @@ DATABASES = {
         'USER': 'user171114',
         'PASSWORD': 'user171114',
         'HOST': 'localhost',
-        'PORT': '5432'
+        'PORT': '5432',
+        'TEST': {
+            'NAME': 'test_user171114',
+        },
     }
 }
 

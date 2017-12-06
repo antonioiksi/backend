@@ -1,6 +1,7 @@
 from django.conf.urls import url
 
-from apps.data_bin.views.view_bin import BinListView, BinCreateView, BinDeleteView, BinResetView, BinActivateView
+from apps.data_bin.views.view_bin import BinListView, BinCreateView, BinDeleteView, BinResetView, BinActivateView, \
+    FlatDataBinView
 from apps.data_bin.views.view_bin_item import BinItemListView, BinItemView, BinItemDeleteView
 
 urlpatterns = [
@@ -8,6 +9,8 @@ urlpatterns = [
 
     url(r'^activate/(?P<name>.+)$', BinActivateView.as_view(), name='activate'),
     url(r'^list/$', BinListView.as_view(), name='list'),
+    url(r'^flat-data/(?P<pk>.+)$', FlatDataBinView.as_view(), name='flat-data'),
+
     url(r'^create/$', BinCreateView.as_view(), name='create'),
     url(r'^delete/(?P<pk>.+)$', BinDeleteView.as_view(), name='delete'),
 
