@@ -6,7 +6,8 @@
       "user_id": 1,
       "name": "person",
       "title": "личность",
-      "fields": ["play_name"]
+      "fields": ["play_name"],
+      "drawing_id": 1
     }
   },
   {
@@ -16,7 +17,19 @@
       "user_id": 1,
       "name": "phone",
       "title": "телефон",
-      "fields": ["phone"]
+      "fields": ["phone"],
+      "drawing_id": 2
+    }
+  },
+  {
+    "model": "data_graph.graphobject",
+    "pk":3,
+    "fields": {
+      "user_id": 1,
+      "name": "company",
+      "title": "компания",
+      "fields": ["_id","_index"],
+      "drawing_id": 2
     }
   }
 ]

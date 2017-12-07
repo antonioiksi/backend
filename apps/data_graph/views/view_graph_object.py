@@ -35,23 +35,7 @@ class JsonbFilterView(views.APIView):
 
 
 
-class ObjectsByNameView(views.APIView):
-    permission_classes = (PublicEndpoint,)
 
-    def get(self, request, *args, **kwargs):
-        user = self.request.user
-        object_name = self.kwargs['object_name']
-
-        try:
-            object = GraphObject.objects.get(name=object_name)
-        except:
-            return Response(None, status=status.HTTP_204_NO_CONTENT)
-
-        objects = GraphData.objects.filter(data__has_keys=object.fields)
-        arr_data = []
-        if len(objects)>0:
-            arr_data = [item.data for item in objects]
-        return Response(arr_data, status=status.HTTP_200_OK)
 
 
 class GraphObjectViewSet(viewsets.ViewSet):
