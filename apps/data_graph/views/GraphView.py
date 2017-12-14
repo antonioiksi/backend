@@ -45,21 +45,3 @@ class GraphViewSet(viewsets.ViewSet):
         queryset = Graph.objects.filter(user=user)
         serializer = GraphSerializer(queryset, many=True)
         return Response(serializer.data)
-
-
-class GraphActivateView(views.APIView):
-
-    def get(self, request, *args, **kwargs):
-        name = self.kwargs['name']
-        user = self.request.user
-
-        graph = Graph.objects.get(name=name, user=user)
-        Graph.objects.filter(user=user).update(active=False)
-        graph.active = True
-        graph.save()
-
-        list = [GraphSerializer(bin).data for bin in Graph.objects.filter(user=user)]
-        #serializer = BinSerializer(bin)
-        #return Response(json.dumps( serializer.data, ensure_ascii=False), status=status.HTTP_200_OK)
-        #return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(list, status=status.HTTP_200_OK)

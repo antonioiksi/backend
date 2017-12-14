@@ -10,9 +10,9 @@ class ClearGraphDataView(views.APIView):
     permission_classes = (PublicEndpoint,)
 
     def get(self, request, *args, **kwargs):
-        name = self.kwargs['name']
+        graph_id = self.kwargs['graph_id']
         user = self.request.user
-        graph = Graph.objects.get(name=name)
+        graph = Graph.objects.get(pk=graph_id)
         if user != graph.user:
             raise Exception( "You are not a graph's owner")
         deleted = GraphData.objects.filter(graph=graph).delete()

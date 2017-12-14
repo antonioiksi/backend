@@ -7,12 +7,11 @@ from apps.data_graph.views.GraphEdgeView import GraphEdgesByRelationsView
 from apps.data_graph.views.GraphModelView import GraphModelViewSet
 from apps.data_graph.views.GraphNodeView import GraphNodesByModelsView, GraphNodeListView
 from apps.data_graph.views.GraphRelationView import GraphRelationViewSet
-from apps.data_graph.views.GraphView import GraphViewSet, GraphActivateView
+from apps.data_graph.views.GraphView import GraphViewSet
 
 urlpatterns = [
 
-    url(r'^activate/(?P<name>.+)$', GraphActivateView.as_view(), name='activate'),
-    url(r'^clear/(?P<graph_name>.+)$', ClearGraphDataView.as_view(), name='clear'),
+    url(r'^clear/(?P<graph_id>.+)$', ClearGraphDataView.as_view(), name='clear'),
     url(r'^load-data/(?P<graph_name>.+)$', LoadGraphDataView.as_view(), name='load-data'),
 
     url(r'^filter/$', JsonbFilterView.as_view(), name='filter'),
