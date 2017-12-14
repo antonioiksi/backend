@@ -10,7 +10,7 @@ from rest_framework.test import APIRequestFactory, force_authenticate
 
 from apps.auth_jwt.permissions import PublicEndpoint
 from apps.data_bin.views.view_bin import FlatDataBinView
-from apps.data_graph.models import GraphData
+from apps.data_graph.models.model_graph_data import GraphData
 
 
 class LoadGraphFromBinView(views.APIView):

@@ -21,7 +21,7 @@
         <property name="ApplicationName" value="DataGrip" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="test_user171114@localhost" uuid="e61237ee-69dc-40de-8e77-996d5b22251e">
+    <data-source source="LOCAL" name="test_user171114@localhost" uuid="f4f51d59-a7e4-489f-9dd4-8c7aa66d57e7">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>

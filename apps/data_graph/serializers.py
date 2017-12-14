@@ -1,19 +1,57 @@
 from rest_framework import serializers
 
-from apps.data_graph.models import GraphObject, GraphObjectDrawing
+from apps.data_graph.models.model_graph import GraphModelDrawing, Graph, GraphModel, GraphRelation
+from apps.data_graph.models.model_graph_data import GraphNode, GraphData
 
 
-class GraphObjectDrawingSerializer(serializers.ModelSerializer):
+class GraphSerializer(serializers.ModelSerializer):
     class Meta:
-        model = GraphObjectDrawing
+        model = Graph
+        fields = ('id', 'name', 'user', 'active')
+
+
+class GraphModelDrawingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GraphModelDrawing
         fields = ('id', 'json',)
 
 
-class GraphObjectSerializer(serializers.ModelSerializer):
-    drawing = GraphObjectDrawingSerializer()
+class GraphModelSerializer(serializers.ModelSerializer):
+    graph = GraphSerializer()
+    drawing = GraphModelDrawingSerializer()
 
     class Meta:
-        model = GraphObject
-        fields = ('id', 'name', 'title', 'user', 'fields', 'drawing',)
+        model = GraphModel
+        fields = ('id', 'name', 'graph', 'fields', 'drawing',)
+
+class GraphModelNameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GraphModel
+        fields = ('name',)
 
 
+class GraphRelationSerializer(serializers.ModelSerializer):
+    graph = GraphSerializer()
+
+    class Meta:
+        model = GraphRelation
+        fields = ('id', 'name', 'graph', 'from_fields', 'to_fields',)
+
+
+class GraphDataSerializer(serializers.ModelSerializer):
+    #graph = GraphSerializer()
+
+    class Meta:
+        model = GraphData
+        fields = ('id', 'data',)
+
+
+
+class GraphNodeSerializer(serializers.ModelSerializer):
+    #model = GraphModelSerializer()
+    model = GraphModelNameSerializer()
+    graph_data = GraphDataSerializer()
+
+    class Meta:
+        model = GraphNode
+        fields = ('id', 'model', 'graph_data',)

@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'apps.attribute_elastic',
     'apps.elastic.apps.elastic_settings',
     'apps.data_graph',
+    'apps.tests',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -156,6 +157,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+#STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'static'),
+)
+
 
 # app_elastic
 ELASTIC_SEARCH_URL = 'http://localhost:9200'

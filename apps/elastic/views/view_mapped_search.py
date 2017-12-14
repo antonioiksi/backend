@@ -56,10 +56,10 @@ class MappedSearchView(RequestLogViewMixin, views.APIView):
 
                 mappings_res[index_name] = tables_res
 
-        count = 1
-        while (count < 999):
-            print('The count is:', count)
-            count = count + 1
+        #count = 1
+        #while (count < 999):
+        #    print('The count is:', count)
+        #    count = count + 1
 
         if r.status_code == 200:
             result = {}

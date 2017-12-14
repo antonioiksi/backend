@@ -8,8 +8,9 @@ from django.test import TestCase
 from rest_framework import status
 from rest_framework.test import APIRequestFactory, force_authenticate
 
-from apps.data_graph.models import GraphData, GraphObject
-from apps.data_graph.views import JsonbFilterView, ObjectsByNameView
+from apps.data_graph.models.model_graph import GraphModel
+from apps.data_graph.models.model_graph_data import GraphData
+from apps.data_graph.views.GraphDataView import JsonbFilterView, GraphDataByModelNameView
 
 data1 = """
 {"_id": "40001", "_type": "line", "_index": "shakespeare", "_score": 10.968148, "line_id": 40002, "speaker": "FRENCH KING", "play_name": "Henry V", "text_entry": "maiden walls that war hath never entered.", "line_number": "5.2.321", "speech_number": 67}
@@ -20,9 +21,11 @@ data2 = """
 
 class DataGraphModelsTest(TestCase):
     fixtures = [
-        'user_test.json',
-        'graph_data_test.json',
-        'graph_objects_test.json'
+        '00_user_test.json',
+        '01_graph_test.json',
+        '03_graph_model_drawing.json',
+        '04_graph_model_test.json',
+        '05_graph_data_test.json'
     ]
     """ Test module for Log model """
 
@@ -58,25 +61,25 @@ class DataGraphModelsTest(TestCase):
 
 
     def test_GraphObjects(self):
-        self.assertEqual(2, len(GraphObject.objects.all()))
+        self.assertEqual(3, len(GraphModel.objects.all()))
 
 
     def test_PersonObjects(self):
-        person = GraphObject.objects.get(name='person')
-        phone = GraphObject.objects.get(name='phone')
+        person = GraphModel.objects.get(name='person')
+        phone = GraphModel.objects.get(name='phone')
         persons = GraphData.objects.filter(data__has_keys=person.fields)
         phones = GraphData.objects.filter(data__has_keys=phone.fields)
         self.assertEqual(1, len(phones))
 
 
     def test_ObjectsByNameView(self):
-        object_name = 'person'
+        model_name = 'person'
         user = User.objects.get(username='antonio')
         factory = APIRequestFactory()
-        req = factory.get('/objects-by-name/'+object_name)
+        req = factory.get('/objects-by-name/'+model_name)
         force_authenticate(req, user=user)
-        view = ObjectsByNameView.as_view()
-        resp = view(req, object_name=object_name)
+        view = GraphDataByModelNameView.as_view()
+        resp = view(req, model_name=model_name)
 
 
         self.assertEqual(len(resp.data), 2)

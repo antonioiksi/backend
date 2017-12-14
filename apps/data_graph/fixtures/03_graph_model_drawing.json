@@ -1,8 +1,9 @@
 [
   {
-    "model": "data_graph.graphobjectdrawing",
+    "model": "data_graph.graphmodeldrawing",
     "pk":1,
     "fields": {
+      "name": "person",
       "json": {
         "shape": "icon",
         "icon": {
@@ -15,9 +16,10 @@
     }
   },
   {
-    "model": "data_graph.graphobjectdrawing",
+    "model": "data_graph.graphmodeldrawing",
     "pk":2,
     "fields": {
+      "name": "phone",
       "json": {
         "shape": "icon",
         "icon": {

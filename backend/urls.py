@@ -36,6 +36,8 @@ urlpatterns = [
     url(r'^auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^auth/', include('apps.auth_jwt.urls', namespace='auth_jwt')),
 
+    url(r'^tests/', include('apps.tests.urls', namespace='tests')),
+
     #
     url(r'^attribute/', include('apps.attribute.urls', namespace='attribute')),
     url(r'^attribute/', include('apps.attribute_elastic.urls', namespace='attribute-elastic')),

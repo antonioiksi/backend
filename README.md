@@ -127,6 +127,12 @@ if elastic_settings.json is in fixtures dir
 ./manage.py loaddata elastic_settings
 ```
 
+### delete all data from APP
+```commandline
+python manage.py migrate ${APPNAME} zero
+python manage.py migrate ${APPNAME}    
+```
+
 ## 5 STEP Load data
 
 
