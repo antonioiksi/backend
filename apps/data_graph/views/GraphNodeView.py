@@ -100,7 +100,12 @@ class GraphNodesByModelsView(views.APIView):
                             graph_node.save()
                             count += 1
                         elif ('get'.__eq__(action)):
-                            item.data['group'] = model_name
+                            #item.data['group'] = model_name
+                            item.data['label'] = super_pk
+
+                            item.data['shape'] = 'circularImage'
+                            item.data['image'] = 'http://localhost:8000/static/django.jpg'
+
                             item.data['super_pk'] = super_pk
                             arr_data.append(item.data)
                             #arr_data_pk.append(item.pk)
