@@ -7,7 +7,7 @@ class Graph(models.Model):
     Graph object
     """
     name = models.CharField(u'Name', blank=False, null=False, max_length=100)
-    user = models.ForeignKey('auth.User', null=False, blank=False)
+    user = models.ForeignKey('auth.User',null=True, blank=True, default=None)
     active = models.BooleanField(u'Active', null=False, blank=False, default=False)
 
     class Meta:

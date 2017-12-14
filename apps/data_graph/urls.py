@@ -30,7 +30,7 @@ urlpatterns = [
 ]
 
 router = DefaultRouter()
-router.register(r'viewset', GraphViewSet, base_name='graph')
+router.register(r'graph', GraphViewSet, base_name='graph')
 
 router.register(r'model', GraphModelViewSet, base_name='model')
 

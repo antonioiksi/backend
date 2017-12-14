@@ -5,15 +5,19 @@ from apps.data_graph.models.model_graph_data import GraphNode, GraphData
 
 
 class GraphSerializer(serializers.ModelSerializer):
+    graphdata_count = serializers.IntegerField(
+        source='graphdata_set.count',
+        read_only=True
+    )
     class Meta:
         model = Graph
-        fields = ('id', 'name', 'user', 'active')
+        fields = ('id', 'name', 'user', 'active', 'graphdata_count')
 
 
 class GraphModelDrawingSerializer(serializers.ModelSerializer):
     class Meta:
         model = GraphModelDrawing
-        fields = ('id', 'json',)
+        fields = ('id', 'name', 'json',)
 
 
 class GraphModelSerializer(serializers.ModelSerializer):

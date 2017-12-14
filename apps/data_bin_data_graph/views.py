@@ -10,14 +10,22 @@ from rest_framework.test import APIRequestFactory, force_authenticate
 
 from apps.auth_jwt.permissions import PublicEndpoint
 from apps.data_bin.views.view_bin import FlatDataBinView
+from apps.data_graph.models.model_graph import Graph
 from apps.data_graph.models.model_graph_data import GraphData
 
 
 class LoadGraphFromBinView(views.APIView):
-    permission_classes = (PublicEndpoint,)
+    """
 
+    """
+    permission_classes = (PublicEndpoint,)
     def get(self, request, *args, **kwargs):
         bin_pk = self.kwargs['bin_pk']
+        graph_pk = self.kwargs['graph_pk']
+
+        graph = Graph.objects.get(pk=graph_pk)
+
+
         user = self.request.user
         factory = APIRequestFactory()
         req = factory.get('/bin/flat-data/'+bin_pk)
@@ -28,10 +36,11 @@ class LoadGraphFromBinView(views.APIView):
         #pprint(json.loads( resp.body))
 
         for item in res.data:
-            graphData = GraphData(data=item, user=user)
+            graphData = GraphData(graph=graph, data=item)
             graphData.save()
 
-        return Response(res.data, status=status.HTTP_200_OK)
+
+        return Response([len(res.data)], status=status.HTTP_200_OK)
 
 
 class ClearGraphView(views.APIView):

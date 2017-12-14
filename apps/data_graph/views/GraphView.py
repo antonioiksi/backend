@@ -16,7 +16,14 @@ class GraphViewSet(viewsets.ViewSet):
         return Response(serializer.data)
 
     def create(self, request):
-        pass
+        user = self.request.user
+        serializer = GraphSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save(user=self.request.user)
+        #serializer.save()
+        queryset = Graph.objects.filter(user=user)
+        serializer = GraphSerializer(queryset, many=True)
+        return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
         user = self.request.user
@@ -33,7 +40,11 @@ class GraphViewSet(viewsets.ViewSet):
         pass
 
     def destroy(self, request, pk=None):
-        pass
+        user = self.request.user
+        Graph.objects.get(pk=pk).delete()
+        queryset = Graph.objects.filter(user=user)
+        serializer = GraphSerializer(queryset, many=True)
+        return Response(serializer.data)
 
 
 class GraphActivateView(views.APIView):
