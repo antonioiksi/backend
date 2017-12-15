@@ -2,8 +2,9 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 
 from apps.auth_jwt.permissions import PublicEndpoint
-from apps.data_graph.models.model_graph import GraphModel
+from apps.data_graph.models.model_graph import GraphModel, Graph
 from apps.data_graph.serializers import GraphModelSerializer
+
 
 
 class GraphModelViewSet(viewsets.ViewSet):
@@ -17,7 +18,15 @@ class GraphModelViewSet(viewsets.ViewSet):
         return Response(serializer.data)
 
     def create(self, request):
-        pass
+        user = self.request.user
+        serializer = GraphModelSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        graph_pk = serializer.initial_data['graph']
+        graph = Graph.objects.get(pk=graph_pk)
+        queryset = GraphModel.objects.filter(graph=graph)
+        serializer = GraphModelSerializer(queryset, many=True)
+        return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
         user = self.request.user
@@ -34,3 +43,11 @@ class GraphModelViewSet(viewsets.ViewSet):
 
     def destroy(self, request, pk=None):
         pass
+
+
+#class GraphModelViewSet(viewsets.ModelViewSet):
+#    """
+#    API endpoint that allows groups to be viewed or edited.
+#    """
+#    queryset = GraphModel.objects.all()
+#    serializer_class = GraphModelSerializer

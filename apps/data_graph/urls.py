@@ -4,6 +4,7 @@ from rest_framework.routers import DefaultRouter
 from apps.data_graph.views.GraphDataView import LoadGraphDataView, ClearGraphDataView, JsonbFilterView, \
     GraphDataByModelNameView
 from apps.data_graph.views.GraphEdgeView import GraphEdgesByRelationsView
+from apps.data_graph.views.GraphModelDrawingView import GraphModelDrawingViewSet
 from apps.data_graph.views.GraphModelView import GraphModelViewSet
 from apps.data_graph.views.GraphNodeView import GraphNodesByModelsView, GraphNodeListView
 from apps.data_graph.views.GraphRelationView import GraphRelationViewSet
@@ -32,6 +33,8 @@ router = DefaultRouter()
 router.register(r'graph', GraphViewSet, base_name='graph')
 
 router.register(r'model', GraphModelViewSet, base_name='model')
+
+router.register(r'drawing', GraphModelDrawingViewSet, base_name='drawing')
 
 router.register(r'relation', GraphRelationViewSet, base_name='relation')
 

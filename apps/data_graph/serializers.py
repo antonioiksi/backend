@@ -21,8 +21,8 @@ class GraphModelDrawingSerializer(serializers.ModelSerializer):
 
 
 class GraphModelSerializer(serializers.ModelSerializer):
-    graph = GraphSerializer()
-    drawing = GraphModelDrawingSerializer()
+    #graph = GraphSerializer()
+    #drawing = GraphModelDrawingSerializer()
 
     class Meta:
         model = GraphModel
@@ -35,7 +35,7 @@ class GraphModelNameSerializer(serializers.ModelSerializer):
 
 
 class GraphRelationSerializer(serializers.ModelSerializer):
-    graph = GraphSerializer()
+    #graph = GraphSerializer()
 
     class Meta:
         model = GraphRelation
