@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'apps.elastic.apps.elastic_settings',
     'apps.data_graph',
     'apps.tests',
+    'django_extensions',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
