@@ -4,9 +4,10 @@
     "pk":1,
     "fields": {
       "graph_id": 1,
-      "name": "call_to",
-      "from_fields": ["phoneA"],
-      "to_fields": ["phoneB"]
+      "name": "similar play_name",
+      "from_fields": ["play_name"],
+      "to_fields": ["play_name"],
+      "comparators": ["similar"]
     }
   },
   {
@@ -14,9 +15,10 @@
     "pk":2,
     "fields": {
       "graph_id": 1,
-      "name": "same_index_type",
+      "name": "equal_index_type",
       "from_fields": ["_index","_type"],
-      "to_fields": ["_index","_type"]
+      "to_fields": ["_index","_type"],
+      "comparators": ["equal"]
     }
   }
 ]

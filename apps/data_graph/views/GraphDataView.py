@@ -2,8 +2,9 @@ from rest_framework import viewsets, views, status
 from rest_framework.response import Response
 
 from apps.auth_jwt.permissions import PublicEndpoint
-from apps.data_graph.models.model_graph import GraphModel, Graph
-from apps.data_graph.models.model_graph_data import GraphData
+from apps.data_graph.models.Graph import Graph
+from apps.data_graph.models.GraphData import GraphData
+from apps.data_graph.models.GraphModel import GraphModel
 
 
 class ClearGraphDataView(views.APIView):
@@ -26,9 +27,9 @@ class LoadGraphDataView(views.APIView):
     permission_classes = (PublicEndpoint,)
 
     def post(self, request, *args, **kwargs):
-        graph_name = self.kwargs['graph_name']
+        graph_id = self.kwargs['graph_id']
         user = self.request.user
-        graph = Graph.objects.get(name=graph_name)
+        graph = Graph.objects.get(name=graph_id)
 
         count = 0
         for item in request.data:
@@ -77,9 +78,41 @@ class JsonbFilterView(views.APIView):
         arr = GraphData.objects.all()
         #GraphData.objects.filter(data__contains='"_index":"shakespeare"')
         arr1 = GraphData.objects.filter(data__contains={'_id': '40001'})
-
         GraphData.objects.filter(data__has_keys=['_id', '_index'])
-
         arr_data = [ item.data for item in arr1]
-
         return Response(arr_data, status=status.HTTP_200_OK)
+
+
+class GraphDataAllKeysView(views.APIView):
+    '''
+    Get all possible keys by graph_pk
+
+    '''
+    permission_classes = (PublicEndpoint,)
+
+    def get(self, request, *args, **kwargs):
+        user = self.request.user
+        graph_id = self.kwargs['graph_id']
+        graph = Graph.objects.get(pk=graph_id)
+
+
+        arrData = GraphData.objects.filter(graph=graph)
+        list_of_keys = []
+        for obj in arrData.values_list('data', flat=True):
+            list_of_keys = list_of_keys + list(obj.keys())
+
+
+        #set = {}
+        #map(set.__setitem__, list_of_keys, [])
+        #unique_keys = set.keys()
+
+        #GraphData.objects.filter(data__contains='"_index":"shakespeare"')
+        #arr1 = GraphData.objects.filter(data__contains={'_id': '40001'})
+
+        #GraphData.objects.filter(data__has_keys=['_id', '_index'])
+
+        #arr_data = [ item.data for item in arr1]
+        uniq_list = list(set(list_of_keys))
+        uniq_list.sort()
+
+        return Response(uniq_list, status=status.HTTP_200_OK)

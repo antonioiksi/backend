@@ -1,9 +1,9 @@
 from rest_framework import views, status, viewsets
 from rest_framework.response import Response
-
 from apps.auth_jwt.permissions import PublicEndpoint
-from apps.data_graph.models.model_graph import Graph, GraphModel
-from apps.data_graph.serializers import GraphSerializer
+
+from apps.data_graph.models.Graph import Graph
+from apps.data_graph.serializers.GraphSerializer import GraphSerializer
 
 
 class GraphViewSet(viewsets.ViewSet):

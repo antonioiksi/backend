@@ -1,10 +1,26 @@
 from rest_framework import views, status, viewsets
+from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
-
 from apps.auth_jwt.permissions import PublicEndpoint
-from apps.data_graph.models.model_graph import GraphRelation, Graph
-from apps.data_graph.models.model_graph_data import GraphNode, GraphNodeEdge
-from apps.data_graph.serializers import GraphRelationSerializer
+
+from apps.data_graph.models.Graph import Graph
+from apps.data_graph.models.GraphNode import GraphNode, GraphNodeEdge
+from apps.data_graph.models.GraphRelation import GraphRelation
+
+from apps.data_graph.serializers.GraphRelationSerializer import GraphRelationSerializer
+
+
+class GraphRelationForGraphViewSet(ListAPIView):
+    permission_classes = (PublicEndpoint,)
+
+    serializer_class = GraphRelationSerializer
+    def get_queryset(self):
+        graph_id = self.kwargs['graph_id']
+        #user = self.request.user
+        graph = Graph.objects.get(pk=graph_id)
+        queryset = GraphRelation.objects.filter(graph=graph)
+        #queryset = GraphModel.objects.all()
+        return queryset
 
 
 class GraphRelationViewSet(viewsets.ViewSet):
@@ -27,6 +43,7 @@ class GraphRelationViewSet(viewsets.ViewSet):
         return Response(serializer.data)
 
 
+"""
 class GraphRelationBuilderView(views.APIView):
     permission_classes = (PublicEndpoint,)
 
@@ -54,7 +71,7 @@ class GraphRelationBuilderView(views.APIView):
                     node2 = nodes[i2]
                     if (node1.id != node2.id):
                         success = True
-                        for i in range(len(relation.from_fields)) :
+                        for i in range(len(relation.from_fields)):
                             val1 = node1[relation.from_fields[i]]
                             val2 = node2[relation.from_fields[i]]
                             if (val1!=val2):
@@ -71,3 +88,26 @@ class GraphRelationBuilderView(views.APIView):
                     counter[relation_name] = count
 
         return Response(counter, status=status.HTTP_200_OK)
+"""
+
+
+
+class GraphRelationComparatorsView(views.APIView):
+    permission_classes = (PublicEndpoint,)
+
+    def get(self, request, *args, **kwargs):
+        comparators = [
+            {
+                'name':'equal',
+                'title':'equal'
+            },
+            {
+                'name':'similar',
+                'title':'similar'
+            },
+            {
+                'name':'translit_similar',
+                'title':'translit_similar'
+            },
+        ]
+        return Response(comparators, status=status.HTTP_200_OK)

@@ -1,0 +1,343 @@
+digraph model_graph {
+	graph [bb="0,0,575.82,588",
+		fontname=Helvetica,
+		fontsize=8,
+		splines=true
+	];
+	node [fontname=Helvetica,
+		fontsize=8,
+		label="\N",
+		shape=plaintext
+	];
+	edge [fontname=Helvetica,
+		fontsize=8
+	];
+	apps_data_graph_models_GraphRelation_GraphRelation	 [height=1.1667,
+		label=<
+    <TABLE BGCOLOR="palegoldenrod" BORDER="0" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="4" ALIGN="CENTER" BGCOLOR="olivedrab4">
+    <FONT FACE="Helvetica Bold" COLOR="white">
+    GraphRelation
+    </FONT></TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Helvetica Bold">id</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Helvetica Bold">AutoField</FONT>
+    </TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Helvetica Bold">graph</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Helvetica Bold">ForeignKey (id)</FONT>
+    </TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Helvetica ">from_fields</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Helvetica ">ArrayField</FONT>
+    </TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Helvetica ">name</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Helvetica ">CharField</FONT>
+    </TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Helvetica ">to_fields</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Helvetica ">ArrayField</FONT>
+    </TD></TR>
+  
+    </TABLE>
+    >,
+		pos="78,340",
+		width=2.1667];
+	apps_data_graph_models_model_graph_Graph	 [height=1,
+		label=<
+    <TABLE BGCOLOR="palegoldenrod" BORDER="0" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="4" ALIGN="CENTER" BGCOLOR="olivedrab4">
+    <FONT FACE="Helvetica Bold" COLOR="white">
+    Graph
+    </FONT></TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Helvetica Bold">id</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Helvetica Bold">AutoField</FONT>
+    </TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Helvetica Bold">user</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Helvetica Bold">ForeignKey (id)</FONT>
+    </TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Helvetica ">active</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Helvetica ">BooleanField</FONT>
+    </TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Helvetica ">name</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Helvetica ">CharField</FONT>
+    </TD></TR>
+  
+    </TABLE>
+    >,
+		pos="294,116",
+		width=1.9167];
+	apps_data_graph_models_GraphRelation_GraphRelation -> apps_data_graph_models_model_graph_Graph	 [arrowhead=none,
+		arrowtail=dot,
+		dir=both,
+		label="graph (graphrelation)",
+		lp="118.36,238",
+		pos="s,66.899,297.68 65.573,289.48 61.255,259.68 61.453,222.71 80.289,196 97.585,171.48 169.26,147.96 224.89,132.85"];
+	django_contrib_auth_models_User	 [height=0.5,
+		label=<
+  <TABLE BGCOLOR="palegoldenrod" BORDER="0" CELLBORDER="0" CELLSPACING="0">
+  <TR><TD COLSPAN="2" CELLPADDING="4" ALIGN="CENTER" BGCOLOR="olivedrab4">
+  <FONT FACE="Helvetica Bold" COLOR="white">User</FONT>
+  </TD></TR>
+  </TABLE>
+  >,
+		pos="294,18",
+		width=0.75];
+	apps_data_graph_models_model_graph_Graph -> django_contrib_auth_models_User	 [arrowhead=none,
+		arrowtail=dot,
+		dir=both,
+		label="user (graph)",
+		lp="315.79,58",
+		pos="s,294,79.787 294,71.664 294,59.161 294,46.249 294,36.225"];
+	apps_data_graph_models_model_graph_GraphModel	 [height=1.1667,
+		label=<
+    <TABLE BGCOLOR="palegoldenrod" BORDER="0" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="4" ALIGN="CENTER" BGCOLOR="olivedrab4">
+    <FONT FACE="Helvetica Bold" COLOR="white">
+    GraphModel
+    </FONT></TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Helvetica Bold">id</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Helvetica Bold">AutoField</FONT>
+    </TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Helvetica Bold">drawing</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Helvetica Bold">ForeignKey (id)</FONT>
+    </TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Helvetica Bold">graph</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Helvetica Bold">ForeignKey (id)</FONT>
+    </TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Helvetica ">fields</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Helvetica ">ArrayField</FONT>
+    </TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Helvetica ">name</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Helvetica ">CharField</FONT>
+    </TD></TR>
+  
+    </TABLE>
+    >,
+		pos="498,238",
+		width=2.0556];
+	apps_data_graph_models_model_graph_GraphModel -> apps_data_graph_models_model_graph_Graph	 [arrowhead=none,
+		arrowtail=dot,
+		dir=both,
+		label="graph (graphmodel)",
+		lp="431.13,174",
+		pos="s,427.51,195.84 420.46,191.63 398.55,178.52 375.04,164.47 354.31,152.07"];
+	apps_data_graph_models_model_graph_GraphModelDrawing	 [height=0.83333,
+		label=<
+    <TABLE BGCOLOR="palegoldenrod" BORDER="0" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="4" ALIGN="CENTER" BGCOLOR="olivedrab4">
+    <FONT FACE="Helvetica Bold" COLOR="white">
+    GraphModelDrawing
+    </FONT></TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Helvetica Bold">id</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Helvetica Bold">AutoField</FONT>
+    </TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Helvetica ">json</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Helvetica ">JSONField</FONT>
+    </TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Helvetica ">name</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Helvetica ">CharField</FONT>
+    </TD></TR>
+  
+    </TABLE>
+    >,
+		pos="498,116",
+		width=1.7778];
+	apps_data_graph_models_model_graph_GraphModel -> apps_data_graph_models_model_graph_GraphModelDrawing	 [arrowhead=none,
+		arrowtail=dot,
+		dir=both,
+		label="drawing (graphmodel)",
+		lp="536.91,174",
+		pos="s,498,195.67 498,187.54 498,173.55 498,158.79 498,146.34"];
+	apps_data_graph_models_model_graph_data_GraphData	 [height=0.83333,
+		label=<
+    <TABLE BGCOLOR="palegoldenrod" BORDER="0" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="4" ALIGN="CENTER" BGCOLOR="olivedrab4">
+    <FONT FACE="Helvetica Bold" COLOR="white">
+    GraphData
+    </FONT></TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Helvetica Bold">id</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Helvetica Bold">AutoField</FONT>
+    </TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Helvetica Bold">graph</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Helvetica Bold">ForeignKey (id)</FONT>
+    </TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Helvetica ">data</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Helvetica ">JSONField</FONT>
+    </TD></TR>
+  
+    </TABLE>
+    >,
+		pos="234,238",
+		width=1.9444];
+	apps_data_graph_models_model_graph_data_GraphData -> apps_data_graph_models_model_graph_Graph	 [arrowhead=none,
+		arrowtail=dot,
+		dir=both,
+		label="graph (graphdata)",
+		lp="293.02,174",
+		pos="s,245.33,207.79 248.35,200.32 252.46,190.33 257.14,179.65 261.96,170 264.88,164.15 268.19,158.07 271.55,152.2"];
+	apps_data_graph_models_model_graph_data_GraphNode	 [height=1,
+		label=<
+    <TABLE BGCOLOR="palegoldenrod" BORDER="0" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="4" ALIGN="CENTER" BGCOLOR="olivedrab4">
+    <FONT FACE="Helvetica Bold" COLOR="white">
+    GraphNode
+    </FONT></TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Helvetica Bold">id</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Helvetica Bold">AutoField</FONT>
+    </TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Helvetica Bold">graph</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Helvetica Bold">ForeignKey (id)</FONT>
+    </TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Helvetica Bold">graph_data</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Helvetica Bold">ForeignKey (id)</FONT>
+    </TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Helvetica Bold">model</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Helvetica Bold">ForeignKey (id)</FONT>
+    </TD></TR>
+  
+    </TABLE>
+    >,
+		pos="334,436",
+		width=2.2222];
+	apps_data_graph_models_model_graph_data_GraphNode -> apps_data_graph_models_model_graph_Graph	 [arrowhead=none,
+		arrowtail=dot,
+		dir=both,
+		label="graph (graphnode)",
+		lp="375.13,238",
+		pos="s,338.52,399.84 339.32,391.56 344.24,337.88 347.88,245.39 326,170 324.24,163.93 321.63,157.84 318.65,152.05"];
+	apps_data_graph_models_model_graph_data_GraphNode -> apps_data_graph_models_model_graph_GraphModel	 [arrowhead=none,
+		arrowtail=dot,
+		dir=both,
+		label="model (graphnode)",
+		lp="477.8,340",
+		pos="s,364.08,399.68 369.47,393.18 397.16,359.75 435.42,313.55 462.99,280.27"];
+	apps_data_graph_models_model_graph_data_GraphNode -> apps_data_graph_models_model_graph_data_GraphData	 [arrowhead=none,
+		arrowtail=dot,
+		dir=both,
+		label="graph_data (graphnode)",
+		lp="282.14,340",
+		pos="s,254.68,399.71 248.94,394.09 245.46,390.36 242.34,386.34 239.71,382 218.76,347.45 221.97,299.18 227.19,268.26"];
+	apps_data_graph_models_model_graph_data_GraphNodeEdge	 [height=1,
+		label=<
+    <TABLE BGCOLOR="palegoldenrod" BORDER="0" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="4" ALIGN="CENTER" BGCOLOR="olivedrab4">
+    <FONT FACE="Helvetica Bold" COLOR="white">
+    GraphNodeEdge
+    </FONT></TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Helvetica Bold">id</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Helvetica Bold">AutoField</FONT>
+    </TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Helvetica Bold">from_node</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Helvetica Bold">ForeignKey (id)</FONT>
+    </TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Helvetica Bold">relation</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Helvetica Bold">ForeignKey (id)</FONT>
+    </TD></TR>
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Helvetica Bold">to_node</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Helvetica Bold">ForeignKey (id)</FONT>
+    </TD></TR>
+  
+    </TABLE>
+    >,
+		pos="227,552",
+		width=2.2083];
+	apps_data_graph_models_model_graph_data_GraphNodeEdge -> apps_data_graph_models_GraphRelation_GraphRelation	 [arrowhead=none,
+		arrowtail=dot,
+		dir=both,
+		label="relation (graphnodeedge)",
+		lp="176.92,494",
+		pos="s,150.16,515.92 143.75,510.73 139.18,506.79 134.92,502.55 131.16,498 103.67,464.77 90.172,416.7 83.691,382.32"];
+	apps_data_graph_models_model_graph_data_GraphNodeEdge -> apps_data_graph_models_model_graph_data_GraphNode	 [arrowhead=none,
+		arrowtail=dot,
+		dir=both,
+		label="from_node (from_node)",
+		lp="269.02,494",
+		pos="s,221.24,515.71 221.89,507.73 222.77,501.45 224.63,495.33 227.96,490 234.46,479.57 243.67,471.07 253.98,464.17"];
+	apps_data_graph_models_model_graph_data_GraphNodeEdge -> apps_data_graph_models_model_graph_data_GraphNode	 [arrowhead=none,
+		arrowtail=dot,
+		dir=both,
+		label="to_node (to_node)",
+		lp="349.69,494",
+		pos="s,293.8,515.98 299.94,510.73 304.32,506.76 308.4,502.51 312,498 317.98,490.5 322.4,481.24 325.65,472.19"];
+}

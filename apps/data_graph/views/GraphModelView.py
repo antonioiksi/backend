@@ -1,18 +1,35 @@
 from rest_framework import viewsets
+from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
-
 from apps.auth_jwt.permissions import PublicEndpoint
-from apps.data_graph.models.model_graph import GraphModel, Graph
-from apps.data_graph.serializers import GraphModelSerializer
 
+from apps.data_graph.models.Graph import Graph
+from apps.data_graph.models.GraphModel import GraphModel
+
+from apps.data_graph.serializers.GraphModelSerializer import GraphModelSerializer
+
+
+class GraphModelForGraphViewSet(ListAPIView):
+    permission_classes = (PublicEndpoint,)
+
+    serializer_class = GraphModelSerializer
+    def get_queryset(self):
+        graph_id = self.kwargs['graph_id']
+        #user = self.request.user
+        graph = Graph.objects.get(pk=graph_id)
+        queryset = GraphModel.objects.filter(graph=graph)
+        #queryset = GraphModel.objects.all()
+        return queryset
 
 
 class GraphModelViewSet(viewsets.ViewSet):
     permission_classes = (PublicEndpoint,)
 
-    def list(self, request):
+    def list(self, request, *args, **kwargs):
+        #graph_id = self.kwargs['graph_id']
         #user = self.request.user
-        #queryset = GraphModel.objects.filter(user=user)
+        #graph = Graph.objects.get(pk=graph_id)
+        #queryset = GraphModel.objects.filter(graph=graph)
         queryset = GraphModel.objects.all()
         serializer = GraphModelSerializer(queryset, many=True)
         return Response(serializer.data)

@@ -8,8 +8,8 @@ from django.test import TestCase
 from rest_framework import status
 from rest_framework.test import APIRequestFactory, force_authenticate
 
-from apps.data_graph.models.model_graph import GraphModel
-from apps.data_graph.models.model_graph_data import GraphData
+from apps.data_graph.models.Graph import GraphModel
+from apps.data_graph.models.GraphData import GraphData
 from apps.data_graph.views.GraphDataView import JsonbFilterView, GraphDataByModelNameView
 
 data1 = """

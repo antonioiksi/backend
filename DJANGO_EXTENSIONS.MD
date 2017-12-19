@@ -22,9 +22,25 @@ install library for drawing
 pip install pydotplus
 ```
 
+
+save png for all apps
 ```commandline
 ./manage.py graph_models -a -o myapp_models.png
 ```
+
+save .dot for all apps
+```commandline
+./manage.py graph_models -a -o myapp_models.dot
+```
+
+for several apps
+```commandline
+./manage.py graph_models data_graph -o  data_graph.png
+```
+
+view and edit .dot files use opensource software
+[https://vincenthee.github.io/DotEditor/](https://vincenthee.github.io/DotEditor/)
+
 
 my first example 
 [myapp_models.png](myapp_models.png)
