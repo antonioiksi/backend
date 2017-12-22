@@ -69,19 +69,33 @@ class GraphNodeAddForModelsView(views.APIView):
 
         #arr_data = []
         arr_node_pk = []
+        arr_graph_node_pk = []
         #arr_data_super_pk = []
         count = 0
         res = []
         for model_name in model_names_json:
-            model = GraphModel.objects.get(name=model_name)
+            model = GraphModel.objects.get(graph=graph, name=model_name)
 
             graph_data = GraphData.objects.filter(graph=graph, data__has_keys=model.fields)
 
             if len(graph_data)>0:
                 for item in graph_data:
+
+                    # Get node_pk from model.fields
+                    node_pk = ''
+                    for key in model.fields:
+                        node_pk += '__' + item.data[key]
+
+                    if node_pk in arr_node_pk:
+                        break
+
+                    # make copy of json
                     item_json = json.dumps(item.data, default=lambda x: x.__dict__)
 
                     copied_item = json.loads(item_json) # deepcopy(item)
+
+                    # TODO check if json data already has attr 'id' then rename it to '___old_id'
+                    copied_item['id'] = node_pk
                     copied_item['label'] = copied_item[model.fields[0]]
 
                     if(model.is_group):
@@ -101,13 +115,16 @@ class GraphNodeAddForModelsView(views.APIView):
                                 copied_item[key] = model.drawing.json[key]
 
 
+
                     graph_node = GraphNode(graph=graph,
                                                node_json=copied_item)
                     graph_node.save()
-                    arr_node_pk.append(graph_node.pk)
+                    arr_node_pk.append(node_pk)
 
-                    graph_node.node_json["id"] = str(graph_node.pk)
-                    graph_node.save()
+                    #graph_node.node_json["id"] = str(graph_node.pk)
+                    #graph_node.save()
+
+                    arr_graph_node_pk.append(graph_node.pk)
                     #GraphNode.objects.update()get(pk=pk)
                     # item.data['group'] = model_name
                     # item.data['label'] = super_pk
@@ -118,7 +135,7 @@ class GraphNodeAddForModelsView(views.APIView):
                     # arr_data.append(item.data)
                     # arr_data_pk.append(item.pk)
                     # arr_data_super_pk.append(super_pk)
-                arr = GraphNode.objects.filter(pk__in=arr_node_pk)
+                arr = GraphNode.objects.filter(pk__in=arr_graph_node_pk)
                 res = [el.node_json for el in arr]
 
         return Response(res, status=status.HTTP_200_OK)

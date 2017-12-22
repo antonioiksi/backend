@@ -2,65 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8a44031-7667-4f64-b66a-2b2cedecb738" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/data_graph/README.MD" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/data_graph/apps/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/data_graph/comparators.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/data_graph/fixtures/00_comparators.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/data_graph/models/Graph.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/data_graph/models/GraphAttribute.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/data_graph/models/GraphAttributeComparator.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/data_graph/models/GraphData.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/data_graph/models/GraphModel.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/data_graph/models/GraphModelDrawing.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/data_graph/models/GraphNode.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/data_graph/models/GraphRelation.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/data_graph/serializers/GraphDataSerializer.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/data_graph/serializers/GraphModelDrawingSerializer.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/data_graph/serializers/GraphModelSerializer.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/data_graph/serializers/GraphNodeSerializer.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/data_graph/serializers/GraphRelationSerializer.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/data_graph/serializers/GraphSerializer.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/data_graph/serializers/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/load_initial_data_graph.sh" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dataSources/3c96246d-80b3-41cb-ad6a-db9f5c43f94a.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dataSources/c1e3be9e-ec29-4750-a4e3-7f4b8c5315cc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dataSources/e61237ee-69dc-40de-8e77-996d5b22251e.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/data_graph/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/data_graph/migrations/0002_auto_20171213_1511.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/data_graph/migrations/0003_auto_20171213_1513.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/data_graph/migrations/0004_graph_active.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/data_graph/migrations/0005_auto_20171214_2020.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/data_graph/models/model_graph.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/data_graph/models/model_graph_data.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/data_graph/serializers.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apps/data_graph/views/GraphEdgeView.py" afterPath="$PROJECT_DIR$/apps/data_graph/views/GraphNodeEdgeView.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/11f4ead8-68df-41ec-bed4-8ff963415d7e/_metadata_/metadata" afterPath="$PROJECT_DIR$/.idea/dataSources/11f4ead8-68df-41ec-bed4-8ff963415d7e/_metadata_/metadata" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/f4f51d59-a7e4-489f-9dd4-8c7aa66d57e7/_metadata_/metadata" afterPath="$PROJECT_DIR$/.idea/dataSources/f4f51d59-a7e4-489f-9dd4-8c7aa66d57e7/_metadata_/metadata" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/f4f51d59-a7e4-489f-9dd4-8c7aa66d57e7/_metadata_/metadata.keystream" afterPath="$PROJECT_DIR$/.idea/dataSources/f4f51d59-a7e4-489f-9dd4-8c7aa66d57e7/_metadata_/metadata.keystream" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/f4f51d59-a7e4-489f-9dd4-8c7aa66d57e7/_metadata_/metadata.keystream.len" afterPath="$PROJECT_DIR$/.idea/dataSources/f4f51d59-a7e4-489f-9dd4-8c7aa66d57e7/_metadata_/metadata.keystream.len" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/f4f51d59-a7e4-489f-9dd4-8c7aa66d57e7/_metadata_/metadata.len" afterPath="$PROJECT_DIR$/.idea/dataSources/f4f51d59-a7e4-489f-9dd4-8c7aa66d57e7/_metadata_/metadata.len" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/f4f51d59-a7e4-489f-9dd4-8c7aa66d57e7/_metadata_/metadata_i" afterPath="$PROJECT_DIR$/.idea/dataSources/f4f51d59-a7e4-489f-9dd4-8c7aa66d57e7/_metadata_/metadata_i" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/f4f51d59-a7e4-489f-9dd4-8c7aa66d57e7/_metadata_/metadata_i.len" afterPath="$PROJECT_DIR$/.idea/dataSources/f4f51d59-a7e4-489f-9dd4-8c7aa66d57e7/_metadata_/metadata_i.len" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/11f4ead8-68df-41ec-bed4-8ff963415d7e/_metadata_/metadata.values.at" afterPath="$PROJECT_DIR$/.idea/dataSources/11f4ead8-68df-41ec-bed4-8ff963415d7e/_metadata_/metadata.values.at" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/fd97dc85-36f4-4377-8dc5-7166c15e17bf/_metadata_/metadata" afterPath="$PROJECT_DIR$/.idea/dataSources/fd97dc85-36f4-4377-8dc5-7166c15e17bf/_metadata_/metadata" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myapp_models.png" afterPath="$PROJECT_DIR$/myapp_models.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/11f4ead8-68df-41ec-bed4-8ff963415d7e.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/11f4ead8-68df-41ec-bed4-8ff963415d7e.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/fd97dc85-36f4-4377-8dc5-7166c15e17bf.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/fd97dc85-36f4-4377-8dc5-7166c15e17bf.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/fd97dc85-36f4-4377-8dc5-7166c15e17bf/_metadata_/metadata.values.at" afterPath="$PROJECT_DIR$/.idea/dataSources/fd97dc85-36f4-4377-8dc5-7166c15e17bf/_metadata_/metadata.values.at" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data_graph.png" afterPath="$PROJECT_DIR$/data_graph.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.venv35/lib/python3.5/site-packages/django/db/migrations/questioner.py" afterPath="$PROJECT_DIR$/.venv35/lib/python3.5/site-packages/django/db/migrations/questioner.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DJANGO_EXTENSIONS.MD" afterPath="$PROJECT_DIR$/DJANGO_EXTENSIONS.MD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/data_bin_data_graph/views.py" afterPath="$PROJECT_DIR$/apps/data_bin_data_graph/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/data_graph/admin.py" afterPath="$PROJECT_DIR$/apps/data_graph/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/data_graph/apps.py" afterPath="$PROJECT_DIR$/apps/data_graph/apps.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/data_graph/fixtures/06_graph_relation_test.json" afterPath="$PROJECT_DIR$/apps/data_graph/fixtures/06_graph_relation_test.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/data_graph/tests/GraphEdgeViewTest.py" afterPath="$PROJECT_DIR$/apps/data_graph/tests/GraphEdgeViewTest.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/data_graph/tests/tests.py" afterPath="$PROJECT_DIR$/apps/data_graph/tests/tests.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/data_graph/urls.py" afterPath="$PROJECT_DIR$/apps/data_graph/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/data_graph/views/GraphDataView.py" afterPath="$PROJECT_DIR$/apps/data_graph/views/GraphDataView.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/data_graph/views/GraphModelDrawingView.py" afterPath="$PROJECT_DIR$/apps/data_graph/views/GraphModelDrawingView.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/data_graph/views/GraphModelView.py" afterPath="$PROJECT_DIR$/apps/data_graph/views/GraphModelView.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/data_graph/views/GraphNodeEdgeView.py" afterPath="$PROJECT_DIR$/apps/data_graph/views/GraphNodeEdgeView.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/data_graph/views/GraphNodeView.py" afterPath="$PROJECT_DIR$/apps/data_graph/views/GraphNodeView.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/data_graph/views/GraphRelationView.py" afterPath="$PROJECT_DIR$/apps/data_graph/views/GraphRelationView.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/data_graph/views/GraphView.py" afterPath="$PROJECT_DIR$/apps/data_graph/views/GraphView.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data_graph.dot" afterPath="$PROJECT_DIR$/data_graph.dot" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -137,78 +88,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="detail.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.venv35/lib/python3.5/site-packages/django/views/generic/detail.py">
+      <file leaf-file-name="GraphRelation.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/data_graph/models/GraphRelation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="76" column="34" lean-forward="true" selection-start-line="58" selection-start-column="1" selection-end-line="76" selection-end-column="34" />
+            <state relative-caret-position="360">
+              <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GraphModelView.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/data_graph/views/GraphModelView.py">
+      <file leaf-file-name="comparators.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps/data_graph/comparators.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="42" column="10" lean-forward="false" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/elastic/apps/elastic_settings/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="39" column="23" lean-forward="true" selection-start-line="38" selection-start-column="8" selection-end-line="39" selection-end-column="23" />
+            <state relative-caret-position="195">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/data_graph/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="44" column="56" lean-forward="true" selection-start-line="44" selection-start-column="56" selection-end-line="44" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GraphNodeView.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/data_graph/views/GraphNodeView.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="60" column="42" lean-forward="true" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="42" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GraphRelationView.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apps/data_graph/views/GraphRelationView.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GraphModel.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/data_graph/models/GraphModel.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="101" lean-forward="true" selection-start-line="7" selection-start-column="101" selection-end-line="7" selection-end-column="101" />
-              <folding>
-                <element signature="e#0#53#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -218,30 +113,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
               <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#52#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GraphRelation.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/data_graph/models/GraphRelation.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="30" column="49" lean-forward="false" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="49" />
-              <folding>
-                <element signature="e#0#53#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.venv35/lib/python3.5/site-packages/rest_framework/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="485" column="0" lean-forward="false" selection-start-line="485" selection-start-column="0" selection-end-line="485" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -282,6 +153,7 @@
       <find>ListView</find>
       <find>get_qu</find>
       <find>ListAPIView</find>
+      <find>arr_node_pk</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -308,7 +180,6 @@
         <option value="$PROJECT_DIR$/apps/data_graph/apps/__init__.py" />
         <option value="$PROJECT_DIR$/apps/data_graph/serializers/__init__.py" />
         <option value="$PROJECT_DIR$/apps/data_graph/serializers/GraphAttribute.py" />
-        <option value="$PROJECT_DIR$/DJANGO_EXTENSIONS.MD" />
         <option value="$PROJECT_DIR$/apps/data_graph/models/model_graph_data.py" />
         <option value="$PROJECT_DIR$/apps/data_graph/models/GraphModelDrawing.py" />
         <option value="$PROJECT_DIR$/apps/data_graph/models/model_graph.py" />
@@ -325,7 +196,6 @@
         <option value="$PROJECT_DIR$/apps/data_graph/serializers/GraphAttributeSerializer.py" />
         <option value="$PROJECT_DIR$/apps/data_graph/models/GraphAttributeComparator.py" />
         <option value="$PROJECT_DIR$/apps/data_graph/views/GraphView.py" />
-        <option value="$PROJECT_DIR$/apps/data_graph/models/GraphRelation.py" />
         <option value="$PROJECT_DIR$/apps/data_graph/serializers/GraphRelationSerializer.py" />
         <option value="$PROJECT_DIR$/apps/data_graph/models/GraphAttribute.py" />
         <option value="$PROJECT_DIR$/apps/data_graph/serializers/GraphSerializer.py" />
@@ -340,12 +210,14 @@
         <option value="$PROJECT_DIR$/apps/data_graph/views/GraphEdgeView.py" />
         <option value="$PROJECT_DIR$/apps/data_graph/models/GraphNode.py" />
         <option value="$PROJECT_DIR$/apps/data_graph/comparators.py" />
-        <option value="$PROJECT_DIR$/apps/data_graph/views/GraphNodeEdgeView.py" />
         <option value="$PROJECT_DIR$/apps/data_graph/admin.py" />
-        <option value="$PROJECT_DIR$/apps/data_graph/views/GraphNodeView.py" />
         <option value="$PROJECT_DIR$/apps/data_graph/views/GraphModelView.py" />
         <option value="$PROJECT_DIR$/apps/data_graph/urls.py" />
         <option value="$PROJECT_DIR$/apps/data_graph/views/GraphRelationView.py" />
+        <option value="$PROJECT_DIR$/apps/data_graph/views/GraphNodeView.py" />
+        <option value="$PROJECT_DIR$/apps/data_graph/views/GraphNodeEdgeView.py" />
+        <option value="$PROJECT_DIR$/DJANGO_EXTENSIONS.MD" />
+        <option value="$PROJECT_DIR$/apps/data_graph/models/GraphRelation.py" />
       </list>
     </option>
   </component>
@@ -355,9 +227,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="800" />
+    <option name="height" value="773" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -375,7 +248,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -402,32 +274,11 @@
               <item name="data_graph" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="backend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="data_graph" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="scripts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -766,21 +617,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="773" extended-state="0" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19394773" sideWeight="0.5048465" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22271386" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20770289" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2778542" sideWeight="0.4951535" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27948305" sideWeight="0.4918033" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2778542" sideWeight="0.4951535" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2924071" sideWeight="0.4918033" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25444266" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21595599" sideWeight="0.49676898" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2609047" sideWeight="0.5081967" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35900962" sideWeight="0.49676898" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -792,6 +642,7 @@
       <window_info id="Salesforce" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -868,62 +719,15 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="123" />
+      <option name="time" value="129" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/comparator/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/comparator/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/data_graph/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DJANGO_EXTENSIONS.MD">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="317">
-            <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="54" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/data_graph/README.MD">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="150">
-            <caret line="10" column="44" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="44" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/data_graph/fixtures/00_comparators.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="1" lean-forward="false" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -931,27 +735,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="20" lean-forward="true" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#38#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/data_graph/serializers/GraphAttributeSerializer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/data_graph/serializers/GraphAttributeSerializer.py" />
     <entry file="file://$PROJECT_DIR$/apps/data_graph/models/GraphAttributeComparator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="3" lean-forward="false" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#28#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -959,9 +750,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="40" lean-forward="false" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#38#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -969,9 +757,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#38#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -979,9 +764,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#53#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -989,9 +771,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="34" lean-forward="false" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#32#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -999,9 +778,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#28#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1009,9 +785,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-314">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#38#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1019,9 +792,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#32#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1029,9 +799,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#64#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1046,7 +813,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1855">
           <caret line="729" column="8" lean-forward="false" selection-start-line="729" selection-start-column="8" selection-end-line="729" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1054,7 +820,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-339">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1062,9 +827,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="23" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#28#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1072,7 +834,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1080,7 +841,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1088,9 +848,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="28" lean-forward="false" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#38#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1098,18 +855,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="11" column="62" lean-forward="false" selection-start-line="11" selection-start-column="62" selection-end-line="11" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/data_graph/models/GraphEdge.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="11" lean-forward="true" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/data_graph/models/GraphEdge.py" />
     <entry file="das://table:/cc8cbe32/11f4ead8-68df-41ec-bed4-8ff963415d7e/user171114.public.data_graph_graphnodeedge">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -1120,19 +869,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/data_graph/comparators.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="29" column="23" lean-forward="false" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/data_graph/fixtures/05_graph_data_test.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="52">
           <caret line="6" column="169" lean-forward="false" selection-start-line="6" selection-start-column="160" selection-end-line="6" selection-end-column="169" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1140,9 +880,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="64" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1150,7 +887,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2212">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1158,7 +894,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="10" column="83" lean-forward="false" selection-start-line="10" selection-start-column="83" selection-end-line="10" selection-end-column="83" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1186,25 +921,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="21" column="56" lean-forward="false" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/data_graph/views/GraphNodeEdgeView.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1433">
-          <caret line="102" column="41" lean-forward="false" selection-start-line="102" selection-start-column="36" selection-end-line="102" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/data_graph/views/GraphView.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-181">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1212,9 +928,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1222,9 +935,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1232,33 +942,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="7" column="19" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.venv35/lib/python3.5/site-packages/django/views/generic/detail.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
-          <caret line="76" column="34" lean-forward="true" selection-start-line="58" selection-start-column="1" selection-end-line="76" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/data_graph/views/GraphNodeView.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="60" column="42" lean-forward="true" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+          <caret line="76" column="34" lean-forward="false" selection-start-line="58" selection-start-column="1" selection-end-line="76" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/elastic/apps/elastic_settings/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="329">
-          <caret line="39" column="23" lean-forward="true" selection-start-line="38" selection-start-column="8" selection-end-line="39" selection-end-column="23" />
-          <folding />
+          <caret line="39" column="23" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="39" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -1266,23 +963,98 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="11">
           <caret line="200" column="0" lean-forward="false" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/data_graph/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="44" column="56" lean-forward="true" selection-start-line="44" selection-start-column="56" selection-end-line="44" selection-end-column="56" />
-          <folding />
+        <state relative-caret-position="127">
+          <caret line="28" column="52" lean-forward="false" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.venv35/lib/python3.5/site-packages/rest_framework/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="485" column="0" lean-forward="false" selection-start-line="485" selection-start-column="0" selection-end-line="485" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="329">
+          <caret line="488" column="0" lean-forward="false" selection-start-line="488" selection-start-column="0" selection-end-line="488" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.venv35/lib/python3.5/site-packages/django/views/generic/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/cc8cbe32/11f4ead8-68df-41ec-bed4-8ff963415d7e/user171114.public.data_graph_graphmodel">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/data_graph/models/GraphModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="7" column="101" lean-forward="false" selection-start-line="7" selection-start-column="101" selection-end-line="7" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/data_graph/views/GraphModelView.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="42" column="10" lean-forward="false" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/data_graph/views/GraphView.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/data_graph/views/GraphRelationView.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="77" column="37" lean-forward="false" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/data_graph/views/GraphNodeView.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/data_graph/views/GraphNodeEdgeView.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="111" column="25" lean-forward="false" selection-start-line="111" selection-start-column="25" selection-end-line="111" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend_models.dot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend_models.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DJANGO_EXTENSIONS.MD">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="106">
+            <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
@@ -1290,46 +1062,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#52#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/data_graph/models/GraphRelation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="30" column="49" lean-forward="false" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="360">
+          <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/data_graph/models/GraphModel.py">
+    <entry file="file://$PROJECT_DIR$/apps/data_graph/comparators.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="101" lean-forward="true" selection-start-line="7" selection-start-column="101" selection-end-line="7" selection-end-column="101" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/data_graph/views/GraphModelView.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="42" column="10" lean-forward="false" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/data_graph/views/GraphRelationView.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        <state relative-caret-position="195">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>

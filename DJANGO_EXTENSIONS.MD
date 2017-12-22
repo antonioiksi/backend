@@ -32,6 +32,9 @@ save .dot for all apps
 ```commandline
 ./manage.py graph_models -a -o myapp_models.dot
 ```
+for view and edit .dot files use 
+[https://vincenthee.github.io/DotEditor/](https://vincenthee.github.io/DotEditor/)
+
 
 for several apps
 ```commandline

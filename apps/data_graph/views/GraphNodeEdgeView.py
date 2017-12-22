@@ -83,6 +83,10 @@ class GraphNodeEdgeAddForRelationsView(views.APIView):
                 for i2 in range(i1+1, len(nodes2)):
                     item1 = nodes1[i1]
                     item2 = nodes2[i2]
+                    node1_pk = item1.node_json["id"]
+                    node2_pk = item2.node_json["id"]
+                    if node1_pk==node2_pk:
+                        break
 
                     success = True
                     for i in range(len(relation.from_fields)):
@@ -100,10 +104,11 @@ class GraphNodeEdgeAddForRelationsView(views.APIView):
 
                     if(success):
                         edge = {
-                            'from': item1.pk,
-                            'to': item2.pk,
+                            'from': node1_pk, # item1.pk,
+                            'to': node2_pk, #item2.pk,
                             'label': relation_name
                         }
                         arr_data.append(edge)
+                        #break
 
         return Response(arr_data, status=status.HTTP_200_OK)
