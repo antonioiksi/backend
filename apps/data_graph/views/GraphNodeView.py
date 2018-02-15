@@ -37,7 +37,8 @@ class GraphNodeListView(views.APIView):
         if user != graph.user:
             raise Exception( "You are not a graph's owner")
         #queryset = GraphNode.objects.filter(graph=graph)
-        array = GraphNode.objects.values_list('node_json', flat=True)
+        array = GraphNode.objects.filter(graph=graph).values_list('node_json', flat=True)
+        #array = GraphNode.objects.values_list('node_json', flat=True)
         #return queryset
 
         return Response(array, status=status.HTTP_200_OK)

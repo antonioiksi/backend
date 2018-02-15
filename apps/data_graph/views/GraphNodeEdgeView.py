@@ -70,10 +70,11 @@ class GraphNodeEdgeAddForRelationsView(views.APIView):
 
         arr_data = []
         for relation_name in relation_names_json:
-            relation = GraphRelation.objects.get(name=relation_name)
+            relation = GraphRelation.objects.get(graph=graph, name=relation_name)
 
             #nodes1 = GraphNode.objects.filter(graph=graph,graph_data__data__has_keys=relation.from_fields)
             #nodes2 = GraphNode.objects.filter(graph=graph,graph_data__data__has_keys=relation.to_fields)
+            #TODO здесь ошибка выдается слишком много узлов
             nodes1 = GraphNode.objects.filter(graph=graph, node_json__has_keys=relation.from_fields)
             nodes2 = GraphNode.objects.filter(graph=graph, node_json__has_keys=relation.to_fields)
             #graph_data1 = GraphData.objects.filter(data__has_keys=relation.from_fields)

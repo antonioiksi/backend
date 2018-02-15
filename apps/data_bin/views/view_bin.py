@@ -31,6 +31,21 @@ class BinListView(generics.ListAPIView):
         #    item_count=Count('binitem'),
         #)
 
+class ActiveBinRetrieveView(GenericAPIView):
+    """
+    Return active 'Bin' for current user
+    """
+    #permission_classes = (IsAdminUser,)
+
+    def get(self, request, pk=None):
+        user = self.request.user
+        queryset = Bin.objects.filter(user=user)
+        bin = get_object_or_404(queryset, active=True)
+
+        serializer = BinSerializer(bin)
+        return Response(serializer.data)
+
+
 
 class BinCreateView(generics.CreateAPIView):
     serializer_class = BinSerializer
