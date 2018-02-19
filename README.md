@@ -58,6 +58,11 @@ rememeber names of our packages in requirements.txt
 ```commandline
 pip freeze > requirements.txt
 ```
+opposite command, load packages from requirements.txt
+```commandline
+pip install -r requirements.txt
+```
+
 
 ## STEP 2 Setup JWT Auth for django project
 
