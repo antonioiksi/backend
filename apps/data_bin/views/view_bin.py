@@ -20,22 +20,25 @@ class BinListView(generics.ListAPIView):
     Return 'Bin' list for current user
     """
     serializer_class = BinSerializer
-    #permission_classes = (IsAdminUser,)
+
+    # permission_classes = (IsAdminUser,)
 
     def get_queryset(self):
         user = self.request.user
 
         return Bin.objects.filter(user=user)
 
-        #.annotate(
+        # .annotate(
         #    item_count=Count('binitem'),
-        #)
+        # )
+
 
 class ActiveBinRetrieveView(GenericAPIView):
     """
     Return active 'Bin' for current user
     """
-    #permission_classes = (IsAdminUser,)
+
+    # permission_classes = (IsAdminUser,)
 
     def get(self, request, pk=None):
         user = self.request.user
@@ -46,18 +49,27 @@ class ActiveBinRetrieveView(GenericAPIView):
         return Response(serializer.data)
 
 
-
 class BinCreateView(generics.CreateAPIView):
+    """
+    Create 'Bin' for current user
+    """
     serializer_class = BinSerializer
+
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
 
 class BinDeleteView(generics.DestroyAPIView):
+    """
+    Delete 'Bin' by id
+    """
     serializer_class = BinSerializer
 
 
 class BinResetView(GenericAPIView):
+    """
+    Remove all data from 'Bin' by id
+    """
     def get(self, request, pk=None):
         queryset = Bin.objects.all()
         bin = get_object_or_404(queryset, pk=pk)
@@ -70,7 +82,9 @@ class BinResetView(GenericAPIView):
 
 
 class BinActivateView(views.APIView):
-
+    """
+    Activate 'Bin' for current user by bin's name
+    """
     def get(self, request, *args, **kwargs):
         name = self.kwargs['name']
         user = self.request.user
@@ -81,15 +95,16 @@ class BinActivateView(views.APIView):
         bin.save()
 
         list = [BinSerializer(bin).data for bin in Bin.objects.filter(user=user)]
-        #serializer = BinSerializer(bin)
-        #return Response(json.dumps( serializer.data, ensure_ascii=False), status=status.HTTP_200_OK)
-        #return Response(serializer.data, status=status.HTTP_200_OK)
+        # serializer = BinSerializer(bin)
+        # return Response(json.dumps( serializer.data, ensure_ascii=False), status=status.HTTP_200_OK)
+        # return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(list, status=status.HTTP_200_OK)
 
 
-
-
 class FlatDataBinView(views.APIView):
+    """
+    Get data from Items by Bin's Id (flat json mode)
+    """
     permission_classes = (PublicEndpoint,)
 
     def get(self, request, *args, **kwargs):
@@ -98,7 +113,7 @@ class FlatDataBinView(views.APIView):
         pk = self.kwargs['pk']
         bin = Bin.objects.get(pk=pk)
 
-        #if user!=bin.user:
+        # if user!=bin.user:
         #    return Response({'error':'you are not a bin\'s owner!'}, status=status.HTTP_403_FORBIDDEN)
 
         ids = []
@@ -111,21 +126,64 @@ class FlatDataBinView(views.APIView):
                 if id not in ids:
                     allData.append(item)
                     ids.append(id)
-            #allData.extend(itemData.data)
+            # allData.extend(itemData.data)
 
         # flatten json
         flatData = [
             flatten(data)
-                    for data in allData]
-        #list = [
-            #{'_id':item['_id'] for item in binItem.data}
-            #binItem.data
-            #    for binItem in BinItem.objects.filter(bin=bin)]
+            for data in allData]
+        # list = [
+        # {'_id':item['_id'] for item in binItem.data}
+        # binItem.data
+        #    for binItem in BinItem.objects.filter(bin=bin)]
 
-        #temp = [{'_id':1,'name':'n1'},{'_id':2,'name':'n2'}]
+        # temp = [{'_id':1,'name':'n1'},{'_id':2,'name':'n2'}]
 
         return Response(flatData, status=status.HTTP_200_OK)
-        #return Response(temp, status=status.HTTP_200_OK)
+        # return Response(temp, status=status.HTTP_200_OK)
+
+
+class FlatExtendDataBinView(views.APIView):
+    """
+    Get flatten and extended data from Items by Bin's Id (flat json mode)
+    """
+    permission_classes = (PublicEndpoint,)
+
+    def get(self, request, *args, **kwargs):
+        queryset = Bin.objects.all()
+        user = self.request.user
+        pk = self.kwargs['pk']
+        bin = Bin.objects.get(pk=pk)
+
+        # if user!=bin.user:
+        #    return Response({'error':'you are not a bin\'s owner!'}, status=status.HTTP_403_FORBIDDEN)
+
+        ids = []
+        allData = []
+
+        # distinct json
+        for itemData in BinItem.objects.filter(bin=bin):
+            for item in itemData.data:
+                id = item['_id']
+                if id not in ids:
+                    allData.append(item)
+                    ids.append(id)
+            # allData.extend(itemData.data)
+
+        # flatten json
+        flatData = [
+            flatten(data)
+            for data in allData]
+        # list = [
+        # {'_id':item['_id'] for item in binItem.data}
+        # binItem.data
+        #    for binItem in BinItem.objects.filter(bin=bin)]
+
+        # temp = [{'_id':1,'name':'n1'},{'_id':2,'name':'n2'}]
+
+        return Response(flatData, status=status.HTTP_200_OK)
+        # return Response(temp, status=status.HTTP_200_OK)
+
 
 """
 class BinRetriveUpdateView(generics.RetrieveUpdateAPIView):

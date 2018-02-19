@@ -6,7 +6,7 @@ from apps.elastic.views.view_simple_search import SimpleSearchView
 
 class DataBinDrillSearchView(ElasticBinItemMixin, DrillSearchView):
     """
-    Add
+    DataBinDrillSearchView
     """
 
 

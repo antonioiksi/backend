@@ -8,7 +8,7 @@ from apps.data_bin.serializers import BinItemSerializer, BinItemSimpleSerializer
 
 class BinItemListView(generics.ListAPIView):
     """
-    Return 'Bin' list for current user
+    Return list from 'BinItem's by Bin's ID
     """
     serializer_class = BinItemSimpleSerializer
     #permission_classes = (IsAdminUser,)
@@ -24,6 +24,9 @@ class BinItemListView(generics.ListAPIView):
 
 
 class BinItemDeleteView(generics.DestroyAPIView):
+    """
+    Remove 'Bin Item' by ID
+    """
     serializer_class = BinItemSerializer
 
 
