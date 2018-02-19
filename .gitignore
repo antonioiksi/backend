@@ -4,3 +4,4 @@ __pycache__/
 *$py.class
 #/README.md
 .venv35/
+.idea/
