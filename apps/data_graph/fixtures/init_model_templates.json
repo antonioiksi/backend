@@ -1,0 +1,47 @@
+[
+  {
+    "model": "data_graph.modeltemplate",
+    "pk":1,
+    "fields": {
+      "name": "person",
+      "fields": ["person_name"],
+      "drawing_id": 1
+    }
+  },
+  {
+    "model": "data_graph.modeltemplate",
+    "pk":2,
+    "fields": {
+      "name": "phone",
+      "fields": ["phone"],
+      "drawing_id": 2
+    }
+  },
+  {
+    "model": "data_graph.modeltemplate",
+    "pk":3,
+    "fields": {
+      "name": "company",
+      "fields": ["company_name"],
+      "drawing_id": 3
+    }
+  },
+  {
+    "model": "data_graph.modeltemplate",
+    "pk":4,
+    "fields": {
+      "name": "address",
+      "fields": ["address"],
+      "drawing_id": 4
+    }
+  },
+  {
+    "model": "data_graph.modeltemplate",
+    "pk":5,
+    "fields": {
+      "name": "email",
+      "fields": ["email"],
+      "drawing_id": 5
+    }
+  }
+]

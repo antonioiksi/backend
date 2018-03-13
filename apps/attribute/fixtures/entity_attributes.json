@@ -1,0 +1,56 @@
+[
+  {
+    "model": "attribute.entityattribute",
+    "fields": {
+        "name": "person_name",
+        "title": "ФИО",
+        "attributes": [
+            10
+        ]
+    }
+  },
+  {
+    "model": "attribute.entityattribute",
+    "fields": {
+        "name": "phone",
+        "title": "Телефон",
+        "attributes": [
+            5,
+            6,
+            8,
+            17
+        ]
+    }
+  },
+  {
+    "model": "attribute.entityattribute",
+    "fields": {
+        "name": "address",
+        "title": "Адрес",
+        "attributes": [
+            12,
+            14
+        ]
+    }
+  },
+  {
+    "model": "attribute.entityattribute",
+    "fields": {
+        "name": "email",
+        "title": "Email",
+        "attributes": [
+            7
+        ]
+    }
+  },
+  {
+    "model": "attribute.entityattribute",
+    "fields": {
+        "name": "company_name",
+        "title": "Организация",
+        "attributes": [
+            1
+        ]
+    }
+  }
+]

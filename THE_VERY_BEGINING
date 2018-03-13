@@ -1,0 +1,52 @@
+# Just make your life easy
+
+after cloning project from GIT follow the next steps
+
+- install all python modules
+
+`pip install -r requirements.txt`
+
+- create database and change database connetcion in settings.py
+
+
+- migrate
+`./manage.py migrate`
+
+- create user admin
+`./manage.py createsuperuser`
+
+
+## Prepare initial data
+
+- load elasticsearch settings
+```commandline
+./manage.py loaddata elastic_settings.json
+```
+
+- load attributes from elastic mapped fields
+```commandline
+/attribute/attribute_reload_mapped_attributes_list
+```
+
+- load entity attributes
+```commandline
+./manage.py loaddata entity_attributes.json
+```
+
+- define attributes for every entity_attribute, do it on url `http://127.0.0.1:8000/admin/attribute/entityattribute/`
+
+- load drawing models
+```commandline
+./manage.py loaddata init_graph_model_drawing.json
+```
+
+
+- load model templates
+```commandline
+./manage.py loaddata init_model_templates.json
+```
+
+- load relation templates
+```commandline
+./manage.py loaddata init_relation_templates.json
+```
