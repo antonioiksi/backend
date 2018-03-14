@@ -8,6 +8,8 @@ class GraphSerializer(serializers.ModelSerializer):
         source='graphdata_set.count',
         read_only=True
     )
+
     class Meta:
         model = Graph
         fields = ('id', 'name', 'user', 'graphdata_count')
+        read_only_fields = ['user']

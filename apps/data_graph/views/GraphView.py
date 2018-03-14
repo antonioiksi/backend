@@ -10,8 +10,10 @@ from apps.data_graph.views.GraphModelView import CopyGraphModelsFromTemplatesVie
 from apps.data_graph.views.GraphRelationView import CopyGraphRelationsFromTemplatesView
 
 
-class GraphViewSet(viewsets.ViewSet):
+class GraphViewSet(viewsets.ModelViewSet):
     permission_classes = (PublicEndpoint,)
+    serializer_class = GraphSerializer
+    model = Graph
 
     def list(self, request):
         user = self.request.user
@@ -50,7 +52,7 @@ class GraphViewSet(viewsets.ViewSet):
 
         queryset = Graph.objects.filter(user=user)
         serializer = GraphSerializer(queryset, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def retrieve(self, request, pk=None):
         user = self.request.user

@@ -174,6 +174,7 @@ ELASTIC_SEARCH_RESULT_NUMBER = '50'
 
 
 SWAGGER_SETTINGS = {
+    'JSON_EDITOR': True,
     'SECURITY_DEFINITIONS': {
         'basic': {
             'type': 'basic'
