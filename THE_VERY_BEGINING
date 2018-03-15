@@ -23,9 +23,9 @@ after cloning project from GIT follow the next steps
 ./manage.py loaddata elastic_settings.json
 ```
 
-- load attributes from elastic mapped fields
+- load attributes from elastic mapped fields (run backend API!!!)
 ```commandline
-/attribute/attribute_reload_mapped_attributes_list
+{host}/attribute/attribute_reload_mapped_attributes_list
 ```
 
 - load entity attributes
