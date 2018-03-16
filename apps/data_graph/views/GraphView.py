@@ -1,8 +1,8 @@
 from rest_framework import views, status, viewsets
+from rest_framework import permissions
+from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.response import Response
 from rest_framework.test import APIRequestFactory, force_authenticate
-
-from apps.auth_jwt.permissions import PublicEndpoint
 
 from apps.data_graph.models.Graph import Graph
 from apps.data_graph.serializers.GraphSerializer import GraphSerializer
@@ -11,7 +11,8 @@ from apps.data_graph.views.GraphRelationView import CopyGraphRelationsFromTempla
 
 
 class GraphViewSet(viewsets.ModelViewSet):
-    permission_classes = (PublicEndpoint,)
+    permission_classes = (permissions.IsAuthenticated,)
+    authentication_classes = (JWTAuthentication,)
     serializer_class = GraphSerializer
     model = Graph
 
