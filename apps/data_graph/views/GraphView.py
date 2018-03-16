@@ -50,8 +50,8 @@ class GraphViewSet(viewsets.ModelViewSet):
         except:
             print('relation copying failed')
 
-        queryset = Graph.objects.filter(user=user)
-        serializer = GraphSerializer(queryset, many=True)
+        queryset = Graph.objects.get(pk=graph_id)
+        serializer = GraphSerializer(queryset, many=False)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def retrieve(self, request, pk=None):
