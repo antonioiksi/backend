@@ -1,15 +1,15 @@
-from django.http import Http404, JsonResponse, HttpResponse
-from django.shortcuts import render, get_object_or_404
-from rest_framework.renderers import JSONRenderer
-from rest_framework.response import Response
-
+from django.http import Http404, HttpResponse, JsonResponse
+from django.shortcuts import get_object_or_404, render
 # Create your views here.
 from django.views.generic import UpdateView
-from rest_framework import generics, views, status, serializers
+from rest_framework import generics, serializers, status, views
+from rest_framework.renderers import JSONRenderer
+from rest_framework.response import Response
 from rest_framework.utils import json
 from rest_framework.views import APIView
 
 from apps.auth_jwt.permissions import PublicEndpoint
+
 from .models import ElasticSettings
 from .serializers import ElasticSettingsSerializer
 

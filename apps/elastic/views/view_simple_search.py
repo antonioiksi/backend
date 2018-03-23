@@ -1,12 +1,11 @@
 import json
 
 import requests
-from rest_framework import views, status
+from rest_framework import status, views
 from rest_framework.response import Response
 
-from backend import settings
-
 from apps.log.mixins import RequestLogViewMixin
+from backend import settings
 
 
 class SimpleSearchView(RequestLogViewMixin, views.APIView):

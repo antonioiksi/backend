@@ -1,7 +1,9 @@
 from django.conf.urls import url
 
-from .views import ElasticSettingsListView, ElasticSettingsByNameView, ElasticSettingsUpdateView, \
-    ElasticSettingsUpdateSettingView, ElasticSettingsResetByNameView, ElasticSettingsListMapView
+from .views import (ElasticSettingsByNameView, ElasticSettingsListMapView,
+                    ElasticSettingsListView, ElasticSettingsResetByNameView,
+                    ElasticSettingsUpdateSettingView,
+                    ElasticSettingsUpdateView)
 
 urlpatterns = [
 
@@ -18,5 +20,3 @@ urlpatterns = [
     #url(r'^update/(?P<pk>.+)$', ElasticSettingsUpdateView.as_view(), name='update'),
 
 ]
-
-

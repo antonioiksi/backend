@@ -1,13 +1,11 @@
 from django.shortcuts import get_object_or_404
-
 # Create your views here.
-from rest_framework import generics, views, status
+from rest_framework import generics, status, views
 from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 
 from apps.data_bin.models import Bin, BinItem
 from apps.data_bin.serializers import BinSerializer
-
 from apps.log.mixins import RequestLogViewMixin
 
 

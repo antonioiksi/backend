@@ -2,8 +2,9 @@ from django.http import Http404
 from django.shortcuts import get_object_or_404
 from rest_framework import generics
 
-from apps.data_bin.models import BinItem, Bin
-from apps.data_bin.serializers import BinItemSerializer, BinItemSimpleSerializer
+from apps.data_bin.models import Bin, BinItem
+from apps.data_bin.serializers import (BinItemSerializer,
+                                       BinItemSimpleSerializer)
 
 
 class BinItemListView(generics.ListAPIView):

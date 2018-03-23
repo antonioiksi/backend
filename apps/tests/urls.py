@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from apps.tests.views import TestDRFView, TestDRFESView, TestDRFDataBaseView
+from apps.tests.views import TestDRFDataBaseView, TestDRFESView, TestDRFView
 
 urlpatterns = [
 

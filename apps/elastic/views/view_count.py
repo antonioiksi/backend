@@ -1,13 +1,10 @@
-from rest_framework import views, status
+import requests
+from rest_framework import status, views
 from rest_framework.response import Response
 
 from apps.auth_jwt.permissions import PublicEndpoint
 from apps.log.mixins import RequestLogViewMixin
-import requests
-
 from backend import settings
-
-
 
 
 class CountDocsView(RequestLogViewMixin, views.APIView):

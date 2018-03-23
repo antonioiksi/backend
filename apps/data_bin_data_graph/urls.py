@@ -1,6 +1,7 @@
 from django.conf.urls import url
 
-from .views import LoadGraphFromBinView, ClearGraphView, LoadExtendGraphFromBinView
+from .views import (ClearGraphView, LoadExtendGraphFromBinView,
+                    LoadGraphFromBinView)
 
 urlpatterns = [
 

@@ -1,14 +1,14 @@
-from rest_framework import views, status, viewsets
+from rest_framework import status, views, viewsets
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
-from apps.auth_jwt.permissions import PublicEndpoint
 
+from apps.auth_jwt.permissions import PublicEndpoint
 from apps.data_graph.models.Graph import Graph
 from apps.data_graph.models.GraphNode import GraphNode, GraphNodeEdge
 from apps.data_graph.models.GraphRelation import GraphRelation
 from apps.data_graph.models.RelationTemplate import RelationTemplate
-
-from apps.data_graph.serializers.GraphRelationSerializer import GraphRelationSerializer
+from apps.data_graph.serializers.GraphRelationSerializer import \
+    GraphRelationSerializer
 
 
 class GraphRelationForGraphViewSet(ListAPIView):

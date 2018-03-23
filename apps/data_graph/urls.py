@@ -1,19 +1,33 @@
 from django.conf.urls import url
 from rest_framework.routers import DefaultRouter
 
-from apps.data_graph.views.GraphDataView import LoadGraphDataView, ClearGraphDataView, JsonbFilterView, \
-    GraphDataByModelNameView, GraphDataAllKeysView, GraphDataRemoveItem, GraphDataList
-from apps.data_graph.views.GraphNodeEdgeView import GraphNodeEdgeListView, \
-    GraphNodeEdgeClearView, GraphNodeEdgeAddForRelationsView
-from apps.data_graph.views.GraphModelDrawingView import GraphModelDrawingViewSet
-from apps.data_graph.views.GraphModelView import GraphModelViewSet, GraphModelForGraphViewSet, \
-    CopyGraphModelsFromTemplatesView
-from apps.data_graph.views.GraphNodeView import GraphNodeListView, GraphNodeClearView, GraphNodeAddForModelsView
-from apps.data_graph.views.GraphRelationView import GraphRelationViewSet, GraphRelationComparatorsView, \
-    GraphRelationForGraphViewSet, CopyGraphRelationsFromTemplatesView
+from apps.data_graph.views.GraphDataView import (ClearGraphDataView,
+                                                 GraphDataAllKeysView,
+                                                 GraphDataByModelNameView,
+                                                 GraphDataList,
+                                                 GraphDataRemoveItem,
+                                                 JsonbFilterView,
+                                                 LoadGraphDataView)
+from apps.data_graph.views.GraphModelDrawingView import \
+    GraphModelDrawingViewSet
+from apps.data_graph.views.GraphModelView import (CopyGraphModelsFromTemplatesView,
+                                                  GraphModelForGraphViewSet,
+                                                  GraphModelViewSet)
+from apps.data_graph.views.GraphNodeEdgeView import (GraphNodeEdgeAddForRelationsView,
+                                                     GraphNodeEdgeClearView,
+                                                     GraphNodeEdgeListView)
+from apps.data_graph.views.GraphNodeView import (GraphNodeAddForModelsView,
+                                                 GraphNodeClearView,
+                                                 GraphNodeListView)
+from apps.data_graph.views.GraphRelationView import (CopyGraphRelationsFromTemplatesView,
+                                                     GraphRelationComparatorsView,
+                                                     GraphRelationForGraphViewSet,
+                                                     GraphRelationViewSet)
 from apps.data_graph.views.GraphView import GraphViewSet
-from apps.data_graph.views.ModelTemplateView import ClearModelTemplateView, CopyDefaultModelTemplatesView
-from apps.data_graph.views.RelationTemplateView import CopyDefaultRelationTemplatesView, ClearRelationTemplateView
+from apps.data_graph.views.ModelTemplateView import (ClearModelTemplateView,
+                                                     CopyDefaultModelTemplatesView)
+from apps.data_graph.views.RelationTemplateView import (ClearRelationTemplateView,
+                                                        CopyDefaultRelationTemplatesView)
 
 urlpatterns = [
 

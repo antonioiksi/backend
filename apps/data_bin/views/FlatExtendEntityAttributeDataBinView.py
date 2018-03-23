@@ -1,14 +1,14 @@
 import json
 
+from rest_framework import generics, status, views, viewsets
 from rest_framework.response import Response
-
-from rest_framework import generics, viewsets, views, status
 from rest_framework.test import APIRequestFactory, force_authenticate
 
 from apps.attribute.views import EntityAttributeMappingListView
 from apps.auth_jwt.permissions import PublicEndpoint
 from apps.data_bin.models import Bin, BinItem
-from apps.data_bin.utils import flatten, simplify_mapping, enrich_data, vice_versa_map
+from apps.data_bin.utils import (enrich_data, flatten, simplify_mapping,
+                                 vice_versa_map)
 
 
 class FlatExtendEntityAttributeDataBinView(views.APIView):

@@ -1,8 +1,5 @@
 from django.db import models
 
-
-
-
 # https://pypi.python.org/pypi/abydos
 # https://pypi.python.org/pypi/PyICU/
 from apps.data_graph.comparators import COMPARATOR_CHOICES, EQUAL

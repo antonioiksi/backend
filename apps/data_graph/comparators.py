@@ -1,6 +1,5 @@
 import sys
 
-
 EQUAL = 'equal'
 SIMILAR = 'similar'  # https://pypi.python.org/pypi/abydos
 TRANSLIT_SIMILAR = 'translit_similar'  # https://pypi.python.org/pypi/PyICU/

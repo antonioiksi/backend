@@ -2,16 +2,17 @@ import json
 from pprint import pprint
 
 from django.shortcuts import render
-
+from rest_framework import status, views
 # Create your views here.
 from rest_framework.response import Response
-from rest_framework import views, status
 from rest_framework.test import APIRequestFactory, force_authenticate
 
 from apps.auth_jwt.permissions import PublicEndpoint
 from apps.data_bin.views.FlatDataBinView import FlatDataBinView
-from apps.data_bin.views.FlatExtendAttributeDataBinView import FlatExtendAttributeDataBinView
-from apps.data_bin.views.FlatExtendEntityAttributeDataBinView import FlatExtendEntityAttributeDataBinView
+from apps.data_bin.views.FlatExtendAttributeDataBinView import \
+    FlatExtendAttributeDataBinView
+from apps.data_bin.views.FlatExtendEntityAttributeDataBinView import \
+    FlatExtendEntityAttributeDataBinView
 from apps.data_graph.models.Graph import Graph
 from apps.data_graph.models.GraphData import GraphData
 

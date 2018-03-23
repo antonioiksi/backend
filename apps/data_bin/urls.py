@@ -1,10 +1,14 @@
 from django.conf.urls import url
 
 from apps.data_bin.views.FlatDataBinView import FlatDataBinView
-from apps.data_bin.views.FlatExtendEntityAttributeDataBinView import FlatExtendEntityAttributeDataBinView
-from apps.data_bin.views.view_bin import BinListView, BinCreateView, BinDeleteView, BinResetView, BinActivateView, \
-    ActiveBinRetrieveView
-from apps.data_bin.views.view_bin_item import BinItemListView, BinItemView, BinItemDeleteView
+from apps.data_bin.views.FlatExtendEntityAttributeDataBinView import \
+    FlatExtendEntityAttributeDataBinView
+from apps.data_bin.views.view_bin import (ActiveBinRetrieveView,
+                                          BinActivateView, BinCreateView,
+                                          BinDeleteView, BinListView,
+                                          BinResetView)
+from apps.data_bin.views.view_bin_item import (BinItemDeleteView,
+                                               BinItemListView, BinItemView)
 
 urlpatterns = [
 
@@ -32,5 +36,3 @@ urlpatterns = [
 
 
 ]
-
-

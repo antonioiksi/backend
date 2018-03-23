@@ -1,13 +1,14 @@
-from rest_framework import views, status, viewsets
-from rest_framework import permissions
-from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework import permissions, status, views, viewsets
 from rest_framework.response import Response
 from rest_framework.test import APIRequestFactory, force_authenticate
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from apps.data_graph.models.Graph import Graph
 from apps.data_graph.serializers.GraphSerializer import GraphSerializer
-from apps.data_graph.views.GraphModelView import CopyGraphModelsFromTemplatesView
-from apps.data_graph.views.GraphRelationView import CopyGraphRelationsFromTemplatesView
+from apps.data_graph.views.GraphModelView import \
+    CopyGraphModelsFromTemplatesView
+from apps.data_graph.views.GraphRelationView import \
+    CopyGraphRelationsFromTemplatesView
 
 
 class GraphViewSet(viewsets.ModelViewSet):

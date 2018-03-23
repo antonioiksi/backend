@@ -2,7 +2,8 @@ from rest_framework import serializers
 
 from apps.data_graph.models.GraphNode import GraphNode
 from apps.data_graph.serializers.GraphDataSerializer import GraphDataSerializer
-from apps.data_graph.serializers.GraphModelSerializer import GraphModelNameSerializer
+from apps.data_graph.serializers.GraphModelSerializer import \
+    GraphModelNameSerializer
 
 
 class GraphNodeSerializer(serializers.ModelSerializer):

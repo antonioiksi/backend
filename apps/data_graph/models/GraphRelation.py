@@ -3,7 +3,6 @@ from django.db import models
 
 from apps.data_graph.comparators import COMPARATOR_CHOICES, EQUAL
 
-
 # from apps.data_graph.models.GraphAttributeComparator import GraphAttributeComparator
 
 

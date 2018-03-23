@@ -1,11 +1,12 @@
 from django.conf.urls import url
 
 from apps.elastic.views.view_count import CountDocsView
-from .views.view_mapped_search import MappedSearchView
-from .views.view_query_template import QueryTemplateListView
-from .views.view_mapped_field_list import MappedFieldListView
+
 from .views.view_aliase_list import AliasListView
 from .views.view_drill_search import DrillSearchView
+from .views.view_mapped_field_list import MappedFieldListView
+from .views.view_mapped_search import MappedSearchView
+from .views.view_query_template import QueryTemplateListView
 from .views.view_simple_search import SimpleSearchView
 
 urlpatterns = [

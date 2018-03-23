@@ -2,10 +2,9 @@ from pprint import pprint
 
 from django.contrib.auth.models import User
 from django.test import TestCase
-
 # Create your tests here.
 from rest_framework import status
-from rest_framework.test import APITestCase, APIClient
+from rest_framework.test import APIClient, APITestCase
 
 from apps.data_bin.models import Bin
 

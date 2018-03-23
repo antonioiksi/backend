@@ -1,8 +1,8 @@
 from django.test import TestCase
-
 # Create your tests here.
 from rest_framework import status
 from rest_framework.test import APIRequestFactory
+
 from apps.tests.views import TestDRFView
 
 
@@ -24,4 +24,3 @@ class TestsTest(TestCase):
         view = TestDRFView.as_view()
         resp = view(req)
         self.assertEqual( resp.status_code, status.HTTP_200_OK)
-

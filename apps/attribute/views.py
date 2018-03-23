@@ -1,11 +1,12 @@
 from django.shortcuts import render
-
 # Create your views here.
 from rest_framework import generics, renderers
 
 from apps.auth_jwt.permissions import PublicEndpoint
+
 from .models import Attribute, EntityAttribute
-from .serializers import AttributeSerializer, EntityAttributeSerializer, EntityAttributeSimpleSerializer
+from .serializers import (AttributeSerializer, EntityAttributeSerializer,
+                          EntityAttributeSimpleSerializer)
 
 
 class AttributeListView(generics.ListAPIView):

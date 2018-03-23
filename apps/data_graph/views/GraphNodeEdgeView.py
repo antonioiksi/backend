@@ -1,6 +1,6 @@
 from pprint import pprint
 
-from rest_framework import views, status
+from rest_framework import status, views
 from rest_framework.response import Response
 
 from apps.auth_jwt.permissions import PublicEndpoint

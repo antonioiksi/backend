@@ -1,6 +1,6 @@
+from rest_framework import generics, status, views, viewsets
 from rest_framework.response import Response
 
-from rest_framework import generics, viewsets, views, status
 from apps.auth_jwt.permissions import PublicEndpoint
 from apps.data_bin.models import Bin, BinItem
 from apps.data_bin.utils import flatten

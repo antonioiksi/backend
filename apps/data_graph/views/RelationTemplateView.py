@@ -1,8 +1,8 @@
-from rest_framework import views, status, viewsets
+from rest_framework import status, views, viewsets
 from rest_framework.response import Response
+
 from apps.auth_jwt.permissions import PublicEndpoint
 from apps.data_graph.models import GraphModelDrawing
-
 from apps.data_graph.models.RelationTemplate import RelationTemplate
 
 

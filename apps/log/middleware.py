@@ -1,7 +1,7 @@
+import datetime
 import json
 import socket
 import time
-import datetime
 
 from django.contrib.auth.models import User
 from rest_framework.request import Request

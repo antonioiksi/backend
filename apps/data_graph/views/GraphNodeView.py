@@ -1,14 +1,17 @@
 import json
-from rest_framework import views, status, generics
+from copy import deepcopy
+
+from rest_framework import generics, status, views
 from rest_framework.response import Response
+
 from apps.auth_jwt.permissions import PublicEndpoint
 from apps.data_graph.models.Graph import Graph
 from apps.data_graph.models.GraphData import GraphData
 from apps.data_graph.models.GraphModel import GraphModel
 from apps.data_graph.models.GraphModelDrawing import GraphModelDrawing
 from apps.data_graph.models.GraphNode import GraphNode
-from apps.data_graph.serializers.GraphNodeSerializer import GraphNodeSerializer, GraphNodeJsonSerializer
-from copy import deepcopy
+from apps.data_graph.serializers.GraphNodeSerializer import (GraphNodeJsonSerializer,
+                                                             GraphNodeSerializer)
 
 
 class GraphNodeClearView(views.APIView):

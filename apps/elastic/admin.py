@@ -1,9 +1,10 @@
 from django.contrib import admin
 
+from .models import QueryTemplate
+
 # Register your models here.
 
 
-from .models import QueryTemplate
 
 
 class QueryTemplateAdmin (admin.ModelAdmin):

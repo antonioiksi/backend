@@ -1,7 +1,7 @@
 from django.conf.urls import url
 
-from .views import AttributeListView, EntityAttributeListView, \
-    EntityAttributeMappingListView
+from .views import (AttributeListView, EntityAttributeListView,
+                    EntityAttributeMappingListView)
 
 urlpatterns = [
 

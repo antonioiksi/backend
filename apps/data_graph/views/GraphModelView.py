@@ -1,14 +1,13 @@
-from rest_framework import viewsets, status, views
+from rest_framework import status, views, viewsets
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
+
 from apps.auth_jwt.permissions import PublicEndpoint
-
-from apps.data_graph.models.ModelTemplate import ModelTemplate
-
 from apps.data_graph.models.Graph import Graph
 from apps.data_graph.models.GraphModel import GraphModel
-
-from apps.data_graph.serializers.GraphModelSerializer import GraphModelSerializer
+from apps.data_graph.models.ModelTemplate import ModelTemplate
+from apps.data_graph.serializers.GraphModelSerializer import \
+    GraphModelSerializer
 
 
 class GraphModelForGraphViewSet(ListAPIView):

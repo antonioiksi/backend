@@ -1,16 +1,15 @@
 import json
 
-from rest_framework import views, status
+import requests
+from rest_framework import status, views
 from rest_framework.response import Response
-from rest_framework.test import RequestsClient, APIRequestFactory
+from rest_framework.test import APIRequestFactory, RequestsClient
 
 from apps.attribute.models import Attribute
 from apps.attribute.serializers import AttributeSerializer
 from apps.auth_jwt.permissions import PublicEndpoint
 from apps.elastic.views.view_mapped_field_list import MappedFieldListView
 from apps.log.mixins import RequestLogViewMixin
-import requests
-
 from backend import settings
 
 

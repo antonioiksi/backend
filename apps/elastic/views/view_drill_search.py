@@ -2,13 +2,11 @@ import json
 from pprint import pprint
 
 import requests
-from rest_framework import views, status
+from rest_framework import status, views
 from rest_framework.response import Response
 
 from apps.auth_jwt.permissions import PublicEndpoint
-
 from apps.log.mixins import RequestLogViewMixin
-
 from backend import settings
 
 input_json = """

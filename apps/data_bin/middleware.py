@@ -1,7 +1,7 @@
+import datetime
 import json
 import socket
 import time
-import datetime
 from pprint import pprint
 
 from django.contrib.auth.models import User

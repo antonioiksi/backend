@@ -1,12 +1,13 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render
-
 # Create your views here.
 from rest_framework import generics
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from rest_framework_simplejwt.views import (TokenObtainPairView,
+                                            TokenRefreshView)
+
+from apps.log.mixins import RequestLogViewMixin
 
 from .serializers import UserSerializer
-from apps.log.mixins import RequestLogViewMixin
 
 
 class TokenObtainPairWithLoggingView(RequestLogViewMixin, TokenObtainPairView):

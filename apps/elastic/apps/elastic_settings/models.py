@@ -1,7 +1,6 @@
-from django.db import models
-
 # Create your models here.
 from django.contrib.postgres.fields import JSONField
+from django.db import models
 
 
 class ElasticSettings(models.Model):

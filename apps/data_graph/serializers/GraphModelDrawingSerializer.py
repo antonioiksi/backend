@@ -7,4 +7,3 @@ class GraphModelDrawingSerializer(serializers.ModelSerializer):
     class Meta:
         model = GraphModelDrawing
         fields = ('id', 'name', 'json',)
-

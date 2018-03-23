@@ -1,8 +1,7 @@
 import requests
 from django.shortcuts import render
-
 # Create your views here.
-from rest_framework import views, status
+from rest_framework import status, views
 from rest_framework.response import Response
 
 from apps.auth_jwt.permissions import PublicEndpoint

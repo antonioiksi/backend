@@ -9,4 +9,3 @@ class GraphRelationSerializer(serializers.ModelSerializer):
     class Meta:
         model = GraphRelation
         fields = ('id', 'name', 'graph', 'from_fields', 'to_fields', 'comparators',)
-

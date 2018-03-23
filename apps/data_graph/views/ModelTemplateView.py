@@ -1,12 +1,12 @@
-from rest_framework import views, status, viewsets
+from rest_framework import status, views, viewsets
 from rest_framework.response import Response
+
+from apps.attribute.models import EntityAttribute
 from apps.auth_jwt.permissions import PublicEndpoint
 from apps.data_graph.models import GraphModelDrawing
-
 from apps.data_graph.models.Graph import Graph
 from apps.data_graph.models.ModelTemplate import ModelTemplate
 from apps.data_graph.serializers.GraphSerializer import GraphSerializer
-from apps.attribute.models import EntityAttribute
 
 
 class CopyDefaultModelTemplatesView(views.APIView):

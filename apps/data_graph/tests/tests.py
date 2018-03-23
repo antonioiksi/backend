@@ -1,16 +1,16 @@
 import json
+import os
 from pprint import pprint
 
-import os
 from django.contrib.auth.models import User
-
 from django.test import TestCase
 from rest_framework import status
 from rest_framework.test import APIRequestFactory, force_authenticate
 
 from apps.data_graph.models.Graph import GraphModel
 from apps.data_graph.models.GraphData import GraphData
-from apps.data_graph.views.GraphDataView import JsonbFilterView, GraphDataByModelNameView
+from apps.data_graph.views.GraphDataView import (GraphDataByModelNameView,
+                                                 JsonbFilterView)
 
 data1 = """
 {"_id": "40001", "_type": "line", "_index": "shakespeare", "_score": 10.968148, "line_id": 40002, "speaker": "FRENCH KING", "play_name": "Henry V", "text_entry": "maiden walls that war hath never entered.", "line_number": "5.2.321", "speech_number": 67}
