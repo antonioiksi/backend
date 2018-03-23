@@ -28,9 +28,10 @@ class BinSerializer(serializers.ModelSerializer):
 
 
 class BinItemSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = BinItem
-        fields = ('id', 'bin', 'url', 'query','data','mapping',)
+        fields = ('id', 'bin', 'url', 'query', 'data', 'mapping',)
 
     def validate(self, data):
         """
@@ -43,7 +44,13 @@ class BinItemSerializer(serializers.ModelSerializer):
 
 
 class BinItemSimpleSerializer(serializers.ModelSerializer):
+    doc_count = serializers.SerializerMethodField()
+
     class Meta:
         model = BinItem
-        fields = ('id', 'url', 'query',)
+        fields = ('id', 'url', 'query', 'doc_count')
 
+    def get_doc_count(self, obj):
+        json_data = obj.data
+        doc_count = len(json_data)
+        return doc_count

@@ -1,10 +1,12 @@
-from rest_framework import viewsets, views, status
+from rest_framework import viewsets, views, status, permissions, generics
 from rest_framework.response import Response
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from apps.auth_jwt.permissions import PublicEndpoint
 from apps.data_graph.models.Graph import Graph
 from apps.data_graph.models.GraphData import GraphData
 from apps.data_graph.models.GraphModel import GraphModel
+from apps.data_graph.serializers.GraphDataSerializer import GraphDataSerializer
 
 
 class ClearGraphDataView(views.APIView):
@@ -129,17 +131,43 @@ class GraphDataRemoveItem(views.APIView):
         except:
             return Response(None, status=status.HTTP_204_NO_CONTENT)
 
-        filter_params={}
-        filter_params["graph"] = graph
-        filter_params["data___id"] = record_id
+        filter_params = {"graph": graph, "data___id": record_id}
 
         graphDatas = list(GraphData.objects.
                           filter(**filter_params))
-                          # filter(graph=graph).
-                          # filter(data___id=record_id))
+        # filter(graph=graph).
+        # filter(data___id=record_id))
 
         if len(graphDatas) > 0:
             graphDatas[0].delete()
             return Response(data={"message": "1 rows deleted"}, status=status.HTTP_200_OK)
         else:
             return Response(None, status=status.HTTP_204_NO_CONTENT)
+
+
+class GraphDataList(generics.ListAPIView):
+    permission_classes = (PublicEndpoint,)
+
+    serializer_class = GraphDataSerializer
+
+    # permission_classes = (IsAdminUser,)
+    # ordering_fields = ('name',)
+
+    @property
+    def get_queryset(self):
+        graph_id = self.kwargs['graph_id']
+
+        # user = self.request.user
+        try:
+            graph = Graph.objects.get(pk=graph_id)
+        except:
+            return Response(None, status=status.HTTP_204_NO_CONTENT)
+
+        filter_params = {"graph": graph}
+
+        graphDatas = list(GraphData.objects.
+                          filter(**filter_params))
+        # filter(graph=graph).
+        # filter(data___id=record_id))
+
+        return graphDatas

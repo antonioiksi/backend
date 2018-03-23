@@ -11,8 +11,10 @@ class LogTest(TestCase):
         User.objects.create(username='antonio')
         user = User.objects.get(username='antonio')
 
-
     def test_log(self):
         user = User.objects.get(username='antonio')
 
         self.assertEqual(1, 1)
+
+    def test_UserBinLogViewSet(self):
+        self.assertEquals

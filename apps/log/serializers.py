@@ -5,7 +5,7 @@ from .models import Log
 class LogSerializer(serializers.ModelSerializer):
     class Meta:
         model = Log
-        fields = ('user','ip','datetime','query','event','method')
+        fields = ('user', 'ip', 'datetime', 'query', 'event', 'method')
 
 
 class LogSimpleSerializer(serializers.Serializer):

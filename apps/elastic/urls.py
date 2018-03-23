@@ -1,5 +1,6 @@
 from django.conf.urls import url
 
+from apps.elastic.views.view_count import CountDocsView
 from .views.view_mapped_search import MappedSearchView
 from .views.view_query_template import QueryTemplateListView
 from .views.view_mapped_field_list import MappedFieldListView
@@ -16,6 +17,6 @@ urlpatterns = [
 
     url(r'^query-template/list/$', QueryTemplateListView.as_view(), name='query-template-list'),
 
-
+    url(r'^count/$', CountDocsView.as_view(), name='count'),
 
 ]

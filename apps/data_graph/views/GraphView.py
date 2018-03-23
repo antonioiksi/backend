@@ -61,7 +61,7 @@ class GraphViewSet(viewsets.ModelViewSet):
         if (user != graph.user):
             raise Exception("Yuo are not a graph owner")
         serializer = GraphSerializer(graph)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     def update(self, request, pk=None):
         pass
@@ -74,4 +74,4 @@ class GraphViewSet(viewsets.ModelViewSet):
         Graph.objects.get(pk=pk).delete()
         queryset = Graph.objects.filter(user=user)
         serializer = GraphSerializer(queryset, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)

@@ -2,7 +2,7 @@ from django.conf.urls import url
 from rest_framework.routers import DefaultRouter
 
 from apps.data_graph.views.GraphDataView import LoadGraphDataView, ClearGraphDataView, JsonbFilterView, \
-    GraphDataByModelNameView, GraphDataAllKeysView, GraphDataRemoveItem
+    GraphDataByModelNameView, GraphDataAllKeysView, GraphDataRemoveItem, GraphDataList
 from apps.data_graph.views.GraphNodeEdgeView import GraphNodeEdgeListView, \
     GraphNodeEdgeClearView, GraphNodeEdgeAddForRelationsView
 from apps.data_graph.views.GraphModelDrawingView import GraphModelDrawingViewSet
@@ -18,6 +18,7 @@ from apps.data_graph.views.RelationTemplateView import CopyDefaultRelationTempla
 urlpatterns = [
 
     url(r'^clear/(?P<graph_id>.+)$', ClearGraphDataView.as_view(), name='clear'),
+    url(r'^data/list/(?P<graph_id>.+)$', GraphDataList.as_view(), name='data-list'),
 
     url(r'^remove-data-from-graph/(?P<graph_id>.+)/(?P<id>.+)$', GraphDataRemoveItem.as_view(),
         name='remove-data-from-graph'),
