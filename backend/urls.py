@@ -54,4 +54,6 @@ urlpatterns = [
     #
     url(r'^elastic-bin/', include('apps.data_bin_elastic.urls', namespace='elastic-bin')),
 
+    url(r'^log/', include('apps.log.urls', namespace='log')),
+
 ]

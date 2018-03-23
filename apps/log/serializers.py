@@ -4,9 +4,16 @@ from .models import Log
 
 
 class LogSerializer(serializers.ModelSerializer):
+    query = serializers.SerializerMethodField()
+
     class Meta:
         model = Log
         fields = ('user', 'ip', 'datetime', 'query', 'event', 'method')
+
+    def get_query(self, obj):
+        attr_name = obj.query['query']['bool']['should'][0]['query_string']['default_field']
+        attr_val = obj.query['query']['bool']['should'][0]['query_string']['query']
+        return attr_name+':'+attr_val
 
 
 class LogSimpleSerializer(serializers.Serializer):

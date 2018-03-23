@@ -10,7 +10,7 @@ from apps.log.serializers import LogSerializer
 
 class UserBinLogViewSet(viewsets.ReadOnlyModelViewSet):
     """
-    
+    Get list user search
     """
     permission_classes = (permissions.IsAuthenticated,)
     authentication_classes = (JWTAuthentication,)
@@ -19,6 +19,6 @@ class UserBinLogViewSet(viewsets.ReadOnlyModelViewSet):
 
     def list(self, request):
         user = self.request.user
-        queryset = Log.objects.filter(user=user)
+        queryset = Log.objects.filter(user=user, event='/elastic-bin/mapped-search/').order_by('datetime')
         serializer = LogSerializer(queryset, many=True)
         return Response(serializer.data)

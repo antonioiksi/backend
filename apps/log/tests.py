@@ -16,4 +16,5 @@ class LogTest(TestCase):
         self.assertEqual(1, 1)
 
     def test_UserBinLogViewSet(self):
+
         self.assertEquals
