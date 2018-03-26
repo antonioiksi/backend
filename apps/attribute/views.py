@@ -23,7 +23,7 @@ class EntityAttributeListView(generics.ListAPIView):
     Get list of search attribute
     """
     permission_classes = (PublicEndpoint,)
-    serializer_class = EntityAttributeSimpleSerializer
+    serializer_class = EntityAttributeSerializer
     queryset = EntityAttribute.objects.all()
 
 
