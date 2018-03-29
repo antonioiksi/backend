@@ -60,6 +60,9 @@ class BinDeleteView(generics.DestroyAPIView):
     queryset = Bin.objects.all().order_by('id')
     serializer_class = BinSerializer
 
+    def perform_destroy(self, instance):
+        instance.delete()
+
 
 class BinResetView(GenericAPIView):
     """
