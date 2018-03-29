@@ -5,6 +5,7 @@ from .views import DataBinDrillSearchView, DataBinSimpleSearchView
 urlpatterns = [
 
     url(r'^simple-search/$', DataBinSimpleSearchView.as_view(), name='simple-search'),
-    url(r'^mapped-search/$', DataBinDrillSearchView.as_view(), name='mapped-search'),
+    url(r'^mapped-search/(?P<bin_pk>.+)$', DataBinDrillSearchView.as_view(), name='mapped-search'),
+
 
 ]

@@ -6,6 +6,7 @@ from pprint import pprint
 
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
+from django.http import JsonResponse
 from rest_framework.request import Request
 from rest_framework_simplejwt.authentication import JWTTokenUserAuthentication
 
@@ -57,9 +58,15 @@ class ElasticBinItemMiddleware(object):
         if user_id is not None:
             user = User.objects.get(id=user_id)
         #response.data
+
+        bin_pk = request.resolver_match.kwargs['bin_pk']
+
         try:
-            bin = Bin.objects.get(active=True, user=user)
+            bin = Bin.objects.get(id=bin_pk, user=user)
         except ObjectDoesNotExist:
+            # response.status =
+            return JsonResponse({'error': 'Bin with id='+bin_pk+' does not exist'}, 500)
+            '''
             try:
                 bin = Bin.objects.get(name='default', user=user)
                 Bin.objects.filter(user=user).update(active=False)
@@ -69,6 +76,7 @@ class ElasticBinItemMiddleware(object):
                 bin = Bin(user=user,
                           name='default',
                           active=True)
+            '''
 
 
         #Bin.objects.filter(name='default',user=user.pk)
