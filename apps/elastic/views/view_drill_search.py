@@ -28,13 +28,13 @@ input_json = """
 input_query = """{'query': {'bool': {'should': [{'match': {'speaker': 'king'}},
                                {'match': {'play_name': 'Henry'}}]}}}"""
 
-
 query_match_all = """
 {
     "query": {
         "match_all": {}
     }
 }"""
+
 
 class DrillSearchView(RequestLogViewMixin, views.APIView):
     """
@@ -45,20 +45,25 @@ class DrillSearchView(RequestLogViewMixin, views.APIView):
     def post(self, request, *args, **kwargs):
         # TODO add checking input param http://json-schema.org/
 
+        # sif
+        if 'esQuery' in request.data:
+            esQuery = request.data['esQuery']
+        else:
+            esQuery = request.data
+
         try:
-            es_search = requests.post(settings.ELASTIC_SEARCH_URL + "/_search?size="+settings.ELASTIC_SEARCH_RESULT_NUMBER,
-                                      json.dumps(request.data))
-            #es_search = requests.get(settings.ELASTIC_SEARCH_URL + "/_search")
+            es_search = requests.post(
+                settings.ELASTIC_SEARCH_URL + "/_search?size=" + settings.ELASTIC_SEARCH_RESULT_NUMBER,
+                json.dumps(esQuery))
+            # es_search = requests.get(settings.ELASTIC_SEARCH_URL + "/_search")
             search = es_search.json()
             # output_dict = [x for x in data if x['type'] == '1']
-            #values_arr = [x['_source']['play_name'] for x in data['hits']['hits']]
-            #pprint(values_arr)
+            # values_arr = [x['_source']['play_name'] for x in data['hits']['hits']]
+            # pprint(values_arr)
         except Exception as e:
             return Response('app_elastic error: %s' % e, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-
         mappings_res = {}
-
 
         hits_arr = search['hits']['hits']
         for hit in hits_arr:
@@ -69,18 +74,19 @@ class DrillSearchView(RequestLogViewMixin, views.APIView):
                     es_mapping = requests.get(settings.ELASTIC_SEARCH_URL + '/' + index_name + '/_mapping')
                     mapping = es_mapping.json()
                 except Exception as e:
-                    return Response('app_elastic error getting mapping: %s' % e, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+                    return Response('app_elastic error getting mapping: %s' % e,
+                                    status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
                 mapping = mapping[index_name]['mappings']
-                
-                tables_res={}
+
+                tables_res = {}
                 for table_name in mapping:
                     table_mapping = mapping[table_name]
-                    #d = mapping[index_name]['mappings']['act']['properties']
-                    #tables_mapping = [mapping[key] for key in mapping]
+                    # d = mapping[index_name]['mappings']['act']['properties']
+                    # tables_mapping = [mapping[key] for key in mapping]
                     temp_dict = table_mapping['properties']
 
-                    field_arr = {key:temp_dict[key] for key in temp_dict if temp_dict[key].get('fields') is not None}
+                    field_arr = {key: temp_dict[key] for key in temp_dict if temp_dict[key].get('fields') is not None}
 
                     tables_res[table_name] = field_arr
 
@@ -90,11 +96,11 @@ class DrillSearchView(RequestLogViewMixin, views.APIView):
                 # d = mapping['shakespeare']['mappings']['act']['properties']
                 # [d[key] for key in d if d[key].get('fields') is None]
 
-            #es_mapping = requests.get(settings.ELASTIC_SEARCH_URL + "shakespeare?pretty")
-            #mapping = es_mapping.json()
+            # es_mapping = requests.get(settings.ELASTIC_SEARCH_URL + "shakespeare?pretty")
+            # mapping = es_mapping.json()
 
         result = {}
-        #source_arr = [x['_source'] for x in search['hits']['hits']]
+        # source_arr = [x['_source'] for x in search['hits']['hits']]
         result['data'] = search['hits']['hits']
         result['mapping'] = mappings_res
 
