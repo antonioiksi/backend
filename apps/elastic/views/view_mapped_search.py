@@ -24,6 +24,9 @@ class MappedSearchView(RequestLogViewMixin, views.APIView):
         #js = serializer.validated_data
         # TODO add checking input param http://json-schema.org/
 
+        # request.data
+        # raise Exception("asdasdasdasd");
+
         r = requests.post(settings.ELASTIC_SEARCH_URL+"/_search?size="+settings.ELASTIC_SEARCH_RESULT_NUMBER,
                           json.dumps(request.data))
         search = r.json()
