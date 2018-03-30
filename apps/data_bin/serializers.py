@@ -3,6 +3,13 @@ from rest_framework import serializers
 from .models import Bin, BinItem
 
 
+class BinSimpleSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Bin
+        fields = ('id', 'name')
+
+
 class BinSerializer(serializers.ModelSerializer):
 
     item_count = serializers.SerializerMethodField()
@@ -45,12 +52,23 @@ class BinItemSerializer(serializers.ModelSerializer):
 
 class BinItemSimpleSerializer(serializers.ModelSerializer):
     doc_count = serializers.SerializerMethodField()
+    jsonQuery = serializers.SerializerMethodField()
+    # bin = serializers.SlugRelatedField(read_only=True, slug_field='name')
+    # bin = serializers.StringRelatedField(read_only=True)
+    bin = BinSimpleSerializer(read_only=True)
 
     class Meta:
         model = BinItem
-        fields = ('id', 'url', 'query', 'doc_count')
+        fields = ('id', 'datetime', 'bin', 'jsonQuery', 'doc_count', )
 
     def get_doc_count(self, obj):
         json_data = obj.data
         doc_count = len(json_data)
         return doc_count
+
+    def get_jsonQuery(self, obj):
+        query = obj.query
+        if 'jsonQuery' in query.keys():
+            return query['jsonQuery']
+        else:
+            return query

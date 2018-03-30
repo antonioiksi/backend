@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404
 # Create your views here.
 from rest_framework import generics, status, views
+from rest_framework.exceptions import NotFound
 from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 
@@ -84,11 +85,14 @@ class BinActivateView(views.APIView):
     Activate 'Bin' for current user by bin's name
     """
     def get(self, request, *args, **kwargs):
-        name = self.kwargs['name']
+        bin_pk = self.kwargs['bin_pk']
         user = self.request.user
+        try:
+            bin = Bin.objects.get(pk=bin_pk, user=user)
+        except Bin.DoesNotExist:
+            raise NotFound(detail='Object Bin not found', code=None)
 
-        bin = Bin.objects.get(name=name, user=user)
-        Bin.objects.filter(user=user).update(active=False)
+        #Bin.objects.filter(user=user).update(active=False)
         bin.active = True
         bin.save()
 

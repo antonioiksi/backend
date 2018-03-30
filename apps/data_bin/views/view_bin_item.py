@@ -1,10 +1,25 @@
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 from rest_framework import generics
+from rest_framework.exceptions import PermissionDenied, NotFound
 
 from apps.data_bin.models import Bin, BinItem
 from apps.data_bin.serializers import (BinItemSerializer,
                                        BinItemSimpleSerializer)
+
+
+class UserItemsView(generics.ListAPIView):
+    """
+    Return all items from all user's bins
+    """
+    serializer_class = BinItemSimpleSerializer
+    #permission_classes = (IsAdminUser,)
+
+    def get_queryset(self):
+        user = self.request.user
+        bin_items = BinItem.objects.filter(bin__user=user).order_by('-datetime')
+        return bin_items
+
 
 
 class BinItemListView(generics.ListAPIView):
@@ -15,12 +30,15 @@ class BinItemListView(generics.ListAPIView):
     #permission_classes = (IsAdminUser,)
 
     def get_queryset(self):
-        queryset = Bin.objects.all()
         bin_pk = self.kwargs['bin_pk']
-        bin = get_object_or_404(queryset, pk=bin_pk)
         user = self.request.user
-        if user != bin.user:
-            raise Http404("No BinItem matches the given query.")
+        try:
+            bin = Bin.objects.get(pk=bin_pk, user=user)
+        except Bin.DoesNotExist:
+            raise NotFound(detail='Object Bin not found', code=None)
+
+        # if user != bin.user:
+        #    raise PermissionDenied(detail='You do not have access to this Bin object', code=None)
         return BinItem.objects.filter(bin=bin)
 
 
@@ -29,6 +47,9 @@ class BinItemDeleteView(generics.DestroyAPIView):
     Remove 'Bin Item' by ID
     """
     serializer_class = BinItemSerializer
+
+    def perform_destroy(self, instance):
+        instance.delete()
 
 
 class BinItemView(generics.RetrieveAPIView):

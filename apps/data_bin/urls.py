@@ -8,12 +8,12 @@ from apps.data_bin.views.view_bin import (ActiveBinRetrieveView,
                                           BinDeleteView, BinListView,
                                           BinResetView)
 from apps.data_bin.views.view_bin_item import (BinItemDeleteView,
-                                               BinItemListView, BinItemView)
+                                               BinItemListView, BinItemView, UserItemsView)
 
 urlpatterns = [
 
 
-    url(r'^activate/(?P<name>.+)$', BinActivateView.as_view(), name='activate'),
+    url(r'^activate/(?P<bin_pk>.+)$', BinActivateView.as_view(), name='activate'),
     url(r'^get-active/$', ActiveBinRetrieveView.as_view(), name='get-active'),
 
 
@@ -26,6 +26,7 @@ urlpatterns = [
 
     url(r'^reset/(?P<pk>.+)$', BinResetView.as_view(), name='reset'),
 
+    url(r'^user-items/$', UserItemsView.as_view(), name='user-items'),
     url(r'^item/list/(?P<bin_pk>.+)$', BinItemListView.as_view(), name='bin-item-list'),
     url(r'^item/(?P<pk>.+)$', BinItemView.as_view(), name='bin-item'),
     url(r'^item/delete/(?P<pk>.+)$', BinItemDeleteView.as_view(), name='bin-item-delete'),
