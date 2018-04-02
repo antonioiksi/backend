@@ -4,14 +4,12 @@ from .models import Bin, BinItem
 
 
 class BinSimpleSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Bin
         fields = ('id', 'name')
 
 
 class BinSerializer(serializers.ModelSerializer):
-
     item_count = serializers.SerializerMethodField()
     items_count = serializers.IntegerField(
         source='binitem_set.count',
@@ -35,7 +33,6 @@ class BinSerializer(serializers.ModelSerializer):
 
 
 class BinItemSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = BinItem
         fields = ('id', 'bin', 'url', 'query', 'data', 'mapping',)
@@ -49,7 +46,6 @@ class BinItemSerializer(serializers.ModelSerializer):
         return data
 
 
-
 class BinItemSimpleSerializer(serializers.ModelSerializer):
     doc_count = serializers.SerializerMethodField()
     jsonQuery = serializers.SerializerMethodField()
@@ -59,7 +55,7 @@ class BinItemSimpleSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = BinItem
-        fields = ('id', 'datetime', 'bin', 'jsonQuery', 'doc_count', )
+        fields = ('id', 'datetime', 'bin', 'jsonQuery', 'doc_count',)
 
     def get_doc_count(self, obj):
         json_data = obj.data
