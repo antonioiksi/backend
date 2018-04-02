@@ -8,7 +8,7 @@ from rest_framework.response import Response
 from rest_framework.test import APIRequestFactory, force_authenticate
 
 from apps.auth_jwt.permissions import PublicEndpoint
-from apps.data_bin.views.FlatDataBinView import FlatDataBinView
+from apps.data_bin.views.BinItemDataView import FlatDataBinView
 from apps.data_bin.views.FlatExtendAttributeDataBinView import \
     FlatExtendAttributeDataBinView
 from apps.data_bin.views.FlatExtendEntityAttributeDataBinView import \
