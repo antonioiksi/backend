@@ -92,7 +92,9 @@ class BinActivateView(views.APIView):
         except Bin.DoesNotExist:
             raise NotFound(detail='Object Bin not found', code=None)
 
-        #Bin.objects.filter(user=user).update(active=False)
+        # first of all set all bin as InActive
+        Bin.objects.filter(user=user).update(active=False)
+        # then setup current as Active
         bin.active = True
         bin.save()
 
