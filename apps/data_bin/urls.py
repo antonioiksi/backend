@@ -1,14 +1,14 @@
 from django.conf.urls import url
 
-from apps.data_bin.views.FlatDataBinView import FlatDataBinView
+from apps.data_bin.views.BinItemDataView import FlatDataBinView, BinItemDataView
 from apps.data_bin.views.FlatExtendEntityAttributeDataBinView import \
     FlatExtendEntityAttributeDataBinView
-from apps.data_bin.views.view_bin import (ActiveBinRetrieveView,
-                                          BinActivateView, BinCreateView,
-                                          BinDeleteView, BinListView,
-                                          BinResetView)
-from apps.data_bin.views.view_bin_item import (BinItemDeleteView,
-                                               BinItemListView, BinItemView, UserItemsView)
+from apps.data_bin.views.BinView import (ActiveBinRetrieveView,
+                                         BinActivateView, BinCreateView,
+                                         BinDeleteView, BinListView,
+                                         BinResetView)
+from apps.data_bin.views.BinItemView import (BinItemDeleteView,
+                                             BinItemListView, BinItemView, UserItemsView)
 
 urlpatterns = [
 
@@ -27,6 +27,9 @@ urlpatterns = [
     url(r'^reset/(?P<pk>.+)$', BinResetView.as_view(), name='reset'),
 
     url(r'^user-items/$', UserItemsView.as_view(), name='user-items'),
+    url(r'^(?P<bin_pk>.+)/items/data/$', BinItemDataView.as_view(), name='bin-items-data'),
+
+
     url(r'^item/list/(?P<bin_pk>.+)$', BinItemListView.as_view(), name='bin-item-list'),
     url(r'^item/(?P<pk>.+)$', BinItemView.as_view(), name='bin-item'),
     url(r'^item/delete/(?P<pk>.+)$', BinItemDeleteView.as_view(), name='bin-item-delete'),
