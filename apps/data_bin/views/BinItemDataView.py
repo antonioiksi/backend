@@ -6,6 +6,44 @@ from apps.data_bin.models import Bin, BinItem
 from apps.data_bin.utils import flatten
 
 
+class BinItemDataView(views.APIView):
+    """
+    Get data from Items by Bin's Id (flat json mode)
+    """
+    permission_classes = (PublicEndpoint,)
+
+    def get(self, request, *args, **kwargs):
+        user = self.request.user
+        bin_pk = self.kwargs['bin_pk']
+        bin = Bin.objects.get(pk=bin_pk)
+        bin_items = BinItem.objects.filter(bin=bin)
+
+        _ids = []
+        result = []
+
+        # distinct json
+        for itemData in bin_items:
+            for item in itemData.data:
+                _id = item['_id']
+                if _id not in _ids:
+                    result.append(item)
+                    _ids.append(_id)
+            # allData.extend(itemData.data)
+
+        # flatten json
+        #flatData = [
+        #    flatten(data)
+        #    for data in allData]
+        # list = [
+        # {'_id':item['_id'] for item in binItem.data}
+        # binItem.data
+        #    for binItem in BinItem.objects.filter(bin=bin)]
+
+        # temp = [{'_id':1,'name':'n1'},{'_id':2,'name':'n2'}]
+
+        return Response(result, status=status.HTTP_200_OK)
+
+
 class FlatDataBinView(views.APIView):
     """
     Get data from Items by Bin's Id (flat json mode)
@@ -46,3 +84,5 @@ class FlatDataBinView(views.APIView):
 
         return Response(flatData, status=status.HTTP_200_OK)
         # return Response(temp, status=status.HTTP_200_OK)
+
+
