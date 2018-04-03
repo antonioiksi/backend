@@ -49,10 +49,13 @@ urlpatterns = [
     url(r'^bin-graph/', include('apps.data_bin_data_graph.urls', namespace='bin-graph')),
     #
     url(r'^elastic/', include('apps.elastic.urls', namespace='elastic')),
+
     url(r'^elastic/settings/', include('apps.elastic.apps.elastic_settings.urls', namespace='elastic_settings')),
 
+    url(r'^csv/', include('apps.csv.urls', namespace='csv')),
+
     #
-    url(r'^elastic-bin/', include('apps.data_bin_elastic.urls', namespace='elastic-bin')),
+    url(r'^data-bin-loader/', include('apps.data_bin_loader.urls', namespace='data-bin-loader')),
 
     url(r'^log/', include('apps.log.urls', namespace='log')),
 

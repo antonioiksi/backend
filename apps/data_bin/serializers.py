@@ -63,8 +63,12 @@ class BinItemSimpleSerializer(serializers.ModelSerializer):
         return doc_count
 
     def get_jsonQuery(self, obj):
-        query = obj.query
-        if 'jsonQuery' in query.keys():
-            return query['jsonQuery']
+        if obj.query is not None:
+            query = obj.query
+            if 'jsonQuery' in query.keys():
+                return query['jsonQuery']
+            else:
+                return query
         else:
-            return query
+            return None
+

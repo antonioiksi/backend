@@ -1,56 +1,42 @@
 [
   {
     "model": "attribute.entityattribute",
+    "pk": 1,
     "fields": {
         "name": "person_name",
-        "title": "ФИО",
-        "attributes": [
-            10
-        ]
+        "title": "ФИО"
     }
   },
   {
     "model": "attribute.entityattribute",
+    "pk": 2,
     "fields": {
         "name": "phone",
-        "title": "Телефон",
-        "attributes": [
-            5,
-            6,
-            8,
-            17
-        ]
+        "title": "Телефон"
     }
   },
   {
     "model": "attribute.entityattribute",
+    "pk": 3,
     "fields": {
         "name": "address",
-        "title": "Адрес",
-        "attributes": [
-            12,
-            14
-        ]
+        "title": "Адрес"
     }
   },
   {
     "model": "attribute.entityattribute",
+    "pk": 4,
     "fields": {
         "name": "email",
-        "title": "Email",
-        "attributes": [
-            7
-        ]
+        "title": "Email"
     }
   },
   {
     "model": "attribute.entityattribute",
+    "pk": 5,
     "fields": {
         "name": "company_name",
-        "title": "Организация",
-        "attributes": [
-            1
-        ]
+        "title": "Организация"
     }
   }
 ]

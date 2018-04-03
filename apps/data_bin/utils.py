@@ -44,8 +44,8 @@ def enrich_data(json_item, simple_map={}):
     json_item_source = json_item['_source']
     json_item_new_source = {}
     for key in json_item_source:
-        if key == 'LastName':
-            print('ss')
+        # if key == 'LastName':
+        #    print('ss')
         current_value = json_item_source[key]
         if current_value is not None and len(str(current_value)) > 0:
 
@@ -69,3 +69,57 @@ def enrich_data(json_item, simple_map={}):
                         json_item_new_source[search_field] = current_value
 
     return json_item_new_source
+
+
+def add_value(_source, key, value):
+    """
+    _source - dictionary of field's names and values
+    key - field name, which needs to add
+    value - field value, which needs to add
+    """
+    _new_source = {}
+    for _field_name in _source.keys():
+        _field_value = _source[_field_name]
+
+        if key == _field_name:
+            old_value = _field_value
+
+            # check if old value if list object
+            if isinstance(old_value, (list,)):
+                # check if current value exists in list
+                if value not in old_value:
+                    old_value.append(value)
+            else:
+                # check if current value not equal with old value
+                if old_value != value:
+                    _source[key] = [old_value, value]
+
+        else:
+            _new_source[_field_name] = _field_value
+
+    return _new_source
+
+
+def get_new_value(_source, key, value):
+    """
+    _source - dictionary of field's names and values
+    key - field name, which needs to add
+    value - field value, which needs to add
+    """
+    new_value = None
+    if key in  _source.keys():
+        old_value = _source[key]
+
+        # check if old value if list object
+        if isinstance(old_value, (list,)):
+            # check if current value exists in list
+            if value not in old_value:
+                new_value = list(old_value).append(value)
+        else:
+            # check if current value not equal with old value
+            if old_value != value:
+                new_value = [old_value, value]
+            else:
+                new_value = old_value
+
+    return new_value

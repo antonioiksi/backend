@@ -6,6 +6,7 @@ from rest_framework import status, views
 from rest_framework.response import Response
 
 from apps.auth_jwt.permissions import PublicEndpoint
+from apps.data_bin.utils import add_value, get_new_value
 from apps.log.mixins import RequestLogViewMixin
 from backend import settings
 
@@ -36,8 +37,12 @@ query_match_all = """
 }"""
 
 
+
+
 class DrillSearchView(RequestLogViewMixin, views.APIView):
     """
+
+
 
     """
     permission_classes = (PublicEndpoint,)
@@ -63,8 +68,8 @@ class DrillSearchView(RequestLogViewMixin, views.APIView):
         except Exception as e:
             return Response('app_elastic error: %s' % e, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+        # Getting mapping
         mappings_res = {}
-
         hits_arr = search['hits']['hits']
         for hit in hits_arr:
             index_name = hit['_index']
@@ -99,9 +104,38 @@ class DrillSearchView(RequestLogViewMixin, views.APIView):
             # es_mapping = requests.get(settings.ELASTIC_SEARCH_URL + "shakespeare?pretty")
             # mapping = es_mapping.json()
 
+
+        #result['mapping'] = mappings_res
+        data = search['hits']['hits']
+
+        # enrich data to datasystem attributes
+        for data_item in data:
+            _index = data_item['_index']
+            _type = data_item['_type']
+            _source = data_item['_source']
+            _new_source = {}
+            for _field, _value in _source.items():
+
+                if _field in mappings_res[_index][_type].keys():
+                    fields_dict = mappings_res[_index][_type][_field]['fields']
+                    for f in fields_dict:
+
+                        if f not in _new_source.keys():
+                            # _new_source[f] = [get_new_value(_source, _field, _value)]
+                            _new_source[f] = [_source[_field]]
+                        else:
+                            # _new_source[f].append(get_new_value(_source, _field, _value))
+                            _new_source[f].append(_source[_field])
+
+                # else:
+                    # _new_source[_field] = _value
+
+            data_item['_data_system_source'] = _new_source
+
         result = {}
         # source_arr = [x['_source'] for x in search['hits']['hits']]
-        result['data'] = search['hits']['hits']
-        result['mapping'] = mappings_res
+        result['data'] = data
+        result['mapping_type'] = 1    # PK for ElasticSearch 5.6
+
 
         return Response(result, status=status.HTTP_200_OK)

@@ -40,7 +40,7 @@ class AddedMappedFieldListView(RequestLogViewMixin, views.APIView):
             # print('key'+key)
             found += 1
             if not Attribute.objects.filter(name=key):
-                Attribute(title=key, name=key).save()
+                Attribute(name=key, mapping_type_id=1).save()
                 added += 1
 
         return Response({'found': found, 'added': added, }, status=status.HTTP_200_OK)
