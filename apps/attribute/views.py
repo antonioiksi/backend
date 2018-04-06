@@ -24,7 +24,7 @@ class EntityAttributeListView(generics.ListAPIView):
     """
     permission_classes = (PublicEndpoint,)
     serializer_class = EntityAttributeSerializer
-    queryset = EntityAttribute.objects.all()
+    queryset = EntityAttribute.objects.all().order_by('order')
 
 
 class CustomRenderer(renderers.JSONRenderer):

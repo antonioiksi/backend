@@ -7,6 +7,7 @@ from rest_framework.response import Response
 
 from apps.auth_jwt.permissions import PublicEndpoint
 from apps.data_bin.utils import add_value, get_new_value
+from apps.elastic.utils import prepare_q2
 from apps.log.mixins import RequestLogViewMixin
 from backend import settings
 
@@ -51,10 +52,11 @@ class DrillSearchView(RequestLogViewMixin, views.APIView):
         # TODO add checking input param http://json-schema.org/
 
         # sif
-        if 'esQuery' in request.data:
-            esQuery = request.data['esQuery']
-        else:
-            esQuery = request.data
+        # body = json.loads(request.body.decode("utf-8"))
+        jsonQuery = request.data['jsonQuery']
+
+        # prepare query amd post it to ES
+        esQuery = prepare_q2(jsonQuery)
 
         try:
             es_search = requests.post(
@@ -67,6 +69,14 @@ class DrillSearchView(RequestLogViewMixin, views.APIView):
             # pprint(values_arr)
         except Exception as e:
             return Response('app_elastic error: %s' % e, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        try:
+            es_search = requests.get(settings.ELASTIC_SEARCH_URL + "/_aliases")
+            alias_list_json = es_search.json()
+        except Exception as e:
+            return Response('app_elastic error: %s' % e, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
 
         # Getting mapping
         mappings_res = {}
@@ -108,12 +118,21 @@ class DrillSearchView(RequestLogViewMixin, views.APIView):
         #result['mapping'] = mappings_res
         data = search['hits']['hits']
 
-        # enrich data to datasystem attributes
+        # enrich data to datasystem attributes and aliases
         for data_item in data:
             _index = data_item['_index']
+
             _type = data_item['_type']
             _source = data_item['_source']
             _new_source = {}
+
+            try:
+                data_item['_aliase'] = list(alias_list_json[_index]['aliases'].keys())[0]
+            except Exception as e:
+                # return Response('Aliase not found', status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+                data_item['_aliase'] = _index
+                print('Aliase not found for %s ' % _index)
+
             for _field, _value in _source.items():
 
                 if _field in mappings_res[_index][_type].keys():

@@ -4,7 +4,8 @@
     "pk": 1,
     "fields": {
         "name": "person_name",
-        "title": "ФИО"
+        "title": "ФИО",
+        "order": 10
     }
   },
   {
@@ -12,7 +13,8 @@
     "pk": 2,
     "fields": {
         "name": "phone",
-        "title": "Телефон"
+        "title": "Телефон",
+        "order": 20
     }
   },
   {
@@ -20,7 +22,8 @@
     "pk": 3,
     "fields": {
         "name": "address",
-        "title": "Адрес"
+        "title": "Адрес",
+        "order": 30
     }
   },
   {
@@ -28,7 +31,8 @@
     "pk": 4,
     "fields": {
         "name": "email",
-        "title": "Email"
+        "title": "Email",
+        "order": 40
     }
   },
   {
@@ -36,7 +40,8 @@
     "pk": 5,
     "fields": {
         "name": "company_name",
-        "title": "Организация"
+        "title": "Организация",
+        "order": 100
     }
   }
 ]

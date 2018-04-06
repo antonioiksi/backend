@@ -33,7 +33,7 @@ class Attribute(models.Model):
     """
     mapping_type = models.ForeignKey('attribute.MappingType', on_delete=models.CASCADE, blank=True, null=True, )
     name = models.CharField(u'Name', unique=True, null=False, blank=False, max_length=100)
-    #title = models.CharField(u'Title', unique=True, null=False, blank=False, max_length=100)
+    # title = models.CharField(u'Title', unique=True, null=False, blank=False, max_length=100)
     entity_attribute = models.ForeignKey('attribute.EntityAttribute', on_delete=models.CASCADE, blank=True, null=True, )
 
     def __str__(self):
@@ -57,6 +57,7 @@ class EntityAttribute(models.Model):
     """
     name = models.CharField(u'Name', unique=True, null=False, blank=False, max_length=100)
     title = models.CharField(u'Title', unique=True, null=False, blank=False, max_length=100)
+    order = models.IntegerField(u'Order', null=False, blank=False, default=0)
     # attributes = ArrayField(models.CharField(max_length=100))
     # attributes = models.ManyToManyField(Attribute)
 

@@ -96,8 +96,9 @@ class BinItemDataEnrichFirstLevelMiddleware(object):
         if mapping_type == 0:
             queryset = EntityAttribute.objects.all().values('name')
             for row_queryset in queryset:
-                attribute_name = row_queryset['name']
-                first_level_mapping[attribute_name] = [attribute_name]
+               attribute_name = row_queryset['name']
+               first_level_mapping[attribute_name] = [attribute_name]
+
 
         else:
             queryset = Attribute.objects.filter(mapping_type=mapping_type).exclude(
@@ -135,10 +136,14 @@ class BinItemDataEnrichFirstLevelMiddleware(object):
         # if 'mapping' in response.data:
         #    mapping = jsonData['mapping']
 
-        if len(request.body)>0:
-            query = json.loads(request.body.decode("utf-8"))
+        if mapping_type != 0:
+            if len(request.body) > 0:
+                query = json.loads(request.body.decode("utf-8"))
+            else:
+                query = None
         else:
             query = None
+
         url = request.path_info
         # pprint(data)
         item = BinItem(

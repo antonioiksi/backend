@@ -17,7 +17,7 @@ class UserItemsView(generics.ListAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        bin_items = BinItem.objects.filter(bin__user=user).order_by('-datetime')
+        bin_items = BinItem.objects.filter(bin__user=user).exclude(query__isnull=True).exclude(query__exact={}).order_by('-datetime')
         return bin_items
 
 

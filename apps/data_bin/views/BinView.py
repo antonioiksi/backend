@@ -1,9 +1,10 @@
 from django.shortcuts import get_object_or_404
 # Create your views here.
-from rest_framework import generics, status, views
+from rest_framework import generics, status, views, permissions
 from rest_framework.exceptions import NotFound
 from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from apps.data_bin.models import Bin, BinItem
 from apps.data_bin.serializers import BinSerializer
@@ -32,13 +33,17 @@ class ActiveBinRetrieveView(GenericAPIView):
     """
     Return active 'Bin' for current user
     """
-
-    # permission_classes = (IsAdminUser,)
+    permission_classes = (permissions.IsAuthenticated,)
+    authentication_classes = (JWTAuthentication,)
 
     def get(self, request, pk=None):
         user = self.request.user
-        queryset = Bin.objects.filter(user=user)
-        bin = get_object_or_404(queryset, active=True)
+        # queryset = Bin.objects.filter(user=user)
+        # bin = get_object_or_404(queryset, active=True)
+        try:
+            bin = Bin.objects.get(user=user, active=True)
+        except Bin.DoesNotExist:
+            raise NotFound(detail='Object Bin not found', code=None)
 
         serializer = BinSerializer(bin)
         return Response(serializer.data)

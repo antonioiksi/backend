@@ -1,4 +1,7 @@
+import json
+
 from rest_framework import generics, status, views, viewsets
+from rest_framework.exceptions import NotFound
 from rest_framework.response import Response
 
 from apps.auth_jwt.permissions import PublicEndpoint
@@ -23,15 +26,18 @@ class BinItemDataView(views.APIView):
 
         # distinct json
         for itemData in bin_items:
+            item_id = itemData.id
             for item in itemData.data:
                 _id = item['_id']
+
                 if _id not in _ids:
+                    item['_item_id'] = item_id
                     result.append(item)
                     _ids.append(_id)
             # allData.extend(itemData.data)
 
         # flatten json
-        #flatData = [
+        # flatData = [
         #    flatten(data)
         #    for data in allData]
         # list = [
@@ -86,3 +92,34 @@ class FlatDataBinView(views.APIView):
         # return Response(temp, status=status.HTTP_200_OK)
 
 
+class RemoveRowFromDataView(views.APIView):
+    """
+    Remove row from json array BinItem.data by "_id"
+    """
+
+    permission_classes = (PublicEndpoint,)
+
+    def post(self, request, *args, **kwargs):
+        """
+        :param request:
+        :param args:
+        :param kwargs:
+        :return:
+        """
+        user = self.request.user
+        keys = json.loads(request.body.decode("utf-8"))
+        for key in keys:
+            arr_key = key.split('_')
+            item_id = arr_key[0]
+            id = str( arr_key[1])
+
+            try:
+                bin_item = BinItem.objects.get(pk=item_id, bin__user=user)
+
+            except Bin.DoesNotExist:
+                raise NotFound(detail='Object Bin not found', code=None)
+
+            bin_item.data = [row for row in bin_item.data if str(row['_id']) != id]
+            bin_item.save()
+
+        return Response(None, status=status.HTTP_200_OK)

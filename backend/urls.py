@@ -52,8 +52,6 @@ urlpatterns = [
 
     url(r'^elastic/settings/', include('apps.elastic.apps.elastic_settings.urls', namespace='elastic_settings')),
 
-    url(r'^csv/', include('apps.csv.urls', namespace='csv')),
-
     #
     url(r'^data-bin-loader/', include('apps.data_bin_loader.urls', namespace='data-bin-loader')),
 

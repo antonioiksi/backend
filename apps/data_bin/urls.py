@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from apps.data_bin.views.BinItemDataView import FlatDataBinView, BinItemDataView
+from apps.data_bin.views.BinItemDataView import FlatDataBinView, BinItemDataView, RemoveRowFromDataView
 from apps.data_bin.views.FlatExtendEntityAttributeDataBinView import \
     FlatExtendEntityAttributeDataBinView
 from apps.data_bin.views.BinView import (ActiveBinRetrieveView,
@@ -28,6 +28,8 @@ urlpatterns = [
 
     url(r'^user-items/$', UserItemsView.as_view(), name='user-items'),
     url(r'^(?P<bin_pk>.+)/items/data/$', BinItemDataView.as_view(), name='bin-items-data'),
+
+    url(r'^items/data/remove/$', RemoveRowFromDataView.as_view(), name='items-data-remove'),
 
 
     url(r'^item/list/(?P<bin_pk>.+)$', BinItemListView.as_view(), name='bin-item-list'),
