@@ -31,7 +31,7 @@ class Attribute(models.Model):
     do search by this field
 
     """
-    mapping_type = models.ForeignKey('attribute.MappingType', on_delete=models.CASCADE, blank=True, null=True, )
+    mapping_type = models.ForeignKey('attribute.MappingType', on_delete=models.CASCADE, blank=True, null=True, )    #
     name = models.CharField(u'Name', unique=True, null=False, blank=False, max_length=100)
     # title = models.CharField(u'Title', unique=True, null=False, blank=False, max_length=100)
     entity_attribute = models.ForeignKey('attribute.EntityAttribute', on_delete=models.CASCADE, blank=True, null=True, )

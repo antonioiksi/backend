@@ -1,4 +1,5 @@
 from rest_framework import generics, permissions, status, views, viewsets
+from rest_framework.exceptions import NotFound
 from rest_framework.response import Response
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
@@ -153,7 +154,6 @@ class GraphDataList(generics.ListAPIView):
     # permission_classes = (IsAdminUser,)
     # ordering_fields = ('name',)
 
-    @property
     def get_queryset(self):
         graph_id = self.kwargs['graph_id']
 
@@ -161,13 +161,14 @@ class GraphDataList(generics.ListAPIView):
         try:
             graph = Graph.objects.get(pk=graph_id)
         except:
-            return Response(None, status=status.HTTP_204_NO_CONTENT)
+            raise NotFound(detail='Object Graph not found', code=None)
 
-        filter_params = {"graph": graph}
+        # filter_params = {"graph": graph}
+        # graphDatas = list(GraphData.objects.
+        #                  filter(**filter_params))
 
-        graphDatas = list(GraphData.objects.
-                          filter(**filter_params))
+        queryset = GraphData.objects.filter(graph=graph)
         # filter(graph=graph).
         # filter(data___id=record_id))
 
-        return graphDatas
+        return queryset

@@ -73,6 +73,10 @@ class GraphNodeAddForModelsView(views.APIView):
         except:
             return Response(None, status=status.HTTP_204_NO_CONTENT)
 
+        # remove all nodes before adding
+        GraphNode.objects.filter(graph=graph).delete()
+
+
         # arr_data = []
         arr_node_pk = []
         arr_graph_node_pk = []

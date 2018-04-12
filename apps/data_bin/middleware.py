@@ -46,10 +46,12 @@ class BinItemDataEnrichFirstLevelMiddleware(object):
     def process_request(self, request):
         user = get_user_jwt(request)
         request.user = user
+        print('!!!!!!!!!!!!!!!!!'+request.body.decode("utf-8"))
 
         request.start_time = time.time()
 
     def process_response(self, request, response):
+        print('++++++++++++++++')
 
         if request.method != 'POST' or 'data' not in response.data:
             return response

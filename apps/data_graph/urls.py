@@ -49,7 +49,7 @@ urlpatterns = [
     url(r'^edge/list/(?P<graph_id>.+)/$', GraphNodeEdgeListView.as_view(), name='edge-list'),
     url(r'^edge/add/(?P<graph_id>.+)/$', GraphNodeEdgeAddForRelationsView.as_view(), name='edge-add'),
 
-    #url(r'^object/(?P<object_name>.+)$', GraphObjectViewSet.as_view(), name='objects-by-name'),
+    # url(r'^object/(?P<object_name>.+)$', GraphObjectViewSet.as_view(), name='objects-by-name'),
 
     url(r'^all-keys/(?P<graph_id>.+)$', GraphDataAllKeysView.as_view(),
         name='all-keys'),

@@ -7,3 +7,9 @@ class GraphModelDrawingSerializer(serializers.ModelSerializer):
     class Meta:
         model = GraphModelDrawing
         fields = ('id', 'name', 'json',)
+
+
+class GraphModelDrawingSimpleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GraphModelDrawing
+        fields = ('id', 'name', )

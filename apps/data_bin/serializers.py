@@ -1,3 +1,5 @@
+import json
+
 from rest_framework import serializers
 
 from .models import Bin, BinItem
@@ -10,7 +12,7 @@ class BinSimpleSerializer(serializers.ModelSerializer):
 
 
 class BinSerializer(serializers.ModelSerializer):
-    item_count = serializers.SerializerMethodField()
+    data_row_count = serializers.SerializerMethodField()
     items_count = serializers.IntegerField(
         source='binitem_set.count',
         read_only=True
@@ -18,7 +20,7 @@ class BinSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Bin
-        fields = ('id', 'user', 'name', 'active', 'item_count', 'items_count')
+        fields = ('id', 'user', 'name', 'active', 'items_count', 'data_row_count')
 
     def validate(self, data):
         """
@@ -28,8 +30,12 @@ class BinSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("'name' must contain more than 2 symbols")
         return data
 
-    def get_item_count(self, obj):
-        return obj.binitem_set.count()
+    def get_data_row_count(self, obj):
+        bin = obj
+        count = 0
+        for item in BinItem.objects.filter(bin=bin):
+            count += len(item.data)
+        return count
 
 
 class BinItemSerializer(serializers.ModelSerializer):

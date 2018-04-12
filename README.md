@@ -208,6 +208,10 @@ Reverse MODELS from DB
 ./manage.py inspectdb > models.py
 ```
 
+Get URLs info
+```commandline
+./manage.py show_urls
+```
 
 # FRONTEND
 

@@ -4,6 +4,7 @@ from pprint import pprint
 from django.shortcuts import render
 from rest_framework import status, views
 # Create your views here.
+from rest_framework.exceptions import NotFound
 from rest_framework.response import Response
 from rest_framework.test import APIRequestFactory, force_authenticate
 
@@ -73,11 +74,3 @@ class LoadExtendGraphFromBinView(views.APIView):
         return Response([len(res.data)], status=status.HTTP_200_OK)
 
 
-class ClearGraphView(views.APIView):
-    permission_classes = (PublicEndpoint,)
-
-    def get(self, request, *args, **kwargs):
-        user = self.request.user
-        count = GraphData.objects.filter(user=user).delete()
-
-        return Response({'deleted': count[0]}, status=status.HTTP_200_OK)

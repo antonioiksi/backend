@@ -38,6 +38,8 @@ class FlatExtendEntityAttributeDataBinView(views.APIView):
         except:
             entity_attribute_mapping = {}
 
+
+
         attr_to_entity_attr = vice_versa_map(entity_attribute_mapping)
 
 

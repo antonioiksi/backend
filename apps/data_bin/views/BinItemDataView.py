@@ -32,6 +32,7 @@ class BinItemDataView(views.APIView):
 
                 if _id not in _ids:
                     item['_item_id'] = item_id
+                    item['_json_query'] = itemData.query
                     result.append(item)
                     _ids.append(_id)
             # allData.extend(itemData.data)

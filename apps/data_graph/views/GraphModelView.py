@@ -7,7 +7,7 @@ from apps.data_graph.models.Graph import Graph
 from apps.data_graph.models.GraphModel import GraphModel
 from apps.data_graph.models.ModelTemplate import ModelTemplate
 from apps.data_graph.serializers.GraphModelSerializer import \
-    GraphModelSerializer
+    GraphModelSerializer, GraphModelCreateSerializer
 
 
 class GraphModelForGraphViewSet(ListAPIView):
@@ -37,13 +37,14 @@ class GraphModelViewSet(viewsets.ViewSet):
 
     def create(self, request):
         user = self.request.user
-        serializer = GraphModelSerializer(data=request.data)
+        serializer = GraphModelCreateSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
-        graph_pk = serializer.initial_data['graph']
-        graph = Graph.objects.get(pk=graph_pk)
-        queryset = GraphModel.objects.filter(graph=graph)
-        serializer = GraphModelSerializer(queryset, many=True)
+
+        # graph_pk = serializer.initial_data['graph']
+        # graph = Graph.objects.get(pk=graph_pk)
+        # queryset = GraphModel.objects.filter(graph=graph)
+        # serializer = GraphModelSerializer(queryset, many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
@@ -60,7 +61,11 @@ class GraphModelViewSet(viewsets.ViewSet):
         pass
 
     def destroy(self, request, pk=None):
-        pass
+        user = self.request.user
+        GraphModel.objects.get(pk=pk).delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
 
 
 #class GraphModelViewSet(viewsets.ModelViewSet):

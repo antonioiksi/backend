@@ -37,12 +37,16 @@ class GraphRelationViewSet(viewsets.ViewSet):
         serializer = GraphRelationSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
-        graph_pk = serializer.initial_data['graph']
-        graph = Graph.objects.get(pk=graph_pk)
-        queryset = GraphRelation.objects.filter(graph=graph)
-        serializer = GraphRelationSerializer(queryset, many=True)
+        # graph_pk = serializer.initial_data['graph']
+        # graph = Graph.objects.get(pk=graph_pk)
+        # queryset = GraphRelation.objects.filter(graph=graph)
+        # serializer = GraphRelationSerializer(queryset, many=True)
         return Response(serializer.data)
 
+    def destroy(self, request, pk=None):
+        user = self.request.user
+        GraphRelation.objects.get(pk=pk).delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 """
 class GraphRelationBuilderView(views.APIView):

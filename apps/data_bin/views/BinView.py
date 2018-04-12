@@ -22,7 +22,7 @@ class BinListView(generics.ListAPIView):
     def get_queryset(self):
         user = self.request.user
 
-        return Bin.objects.filter(user=user)
+        return Bin.objects.filter(user=user).order_by('name')
 
         # .annotate(
         #    item_count=Count('binitem'),
@@ -89,7 +89,7 @@ class BinActivateView(views.APIView):
     """
     Activate 'Bin' for current user by bin's name
     """
-    def get(self, request, *args, **kwargs):
+    def put(self, request, *args, **kwargs):
         bin_pk = self.kwargs['bin_pk']
         user = self.request.user
         try:
@@ -97,17 +97,20 @@ class BinActivateView(views.APIView):
         except Bin.DoesNotExist:
             raise NotFound(detail='Object Bin not found', code=None)
 
-        # first of all set all bin as InActive
+        # first of all set all bins as InActive
         Bin.objects.filter(user=user).update(active=False)
         # then setup current as Active
         bin.active = True
         bin.save()
+        serializer = BinSerializer(bin)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
-        list = [BinSerializer(bin).data for bin in Bin.objects.filter(user=user)]
+
+        #list = [BinSerializer(bin).data for bin in Bin.objects.filter(user=user)]
         # serializer = BinSerializer(bin)
         # return Response(json.dumps( serializer.data, ensure_ascii=False), status=status.HTTP_200_OK)
         # return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(list, status=status.HTTP_200_OK)
+        #return Response(list, status=status.HTTP_200_OK)
 
 
 

@@ -5,7 +5,7 @@ from apps.attribute.models import Attribute
 query_body = {
     'query': {
         'bool': {
-            'should': []
+            'must': []
         }
     },
     # highlight : {
