@@ -30,6 +30,9 @@ ALLOWED_HOSTS = ['172.16.9.131',
                  '172.16.9.132',
                  '172.16.9.133',
                  '172.16.9.134',
+                 '172.16.9.71',     # STAGE
+                 '172.16.9.72',     # PROD
+                 '77.129.8.72',     # PROD
                  '127.0.0.1']
 
 
@@ -73,7 +76,7 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=120),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 }
 
