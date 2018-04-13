@@ -1,5 +1,6 @@
 from django.conf.urls import url
 
+from apps.elastic.views.ESInfoView import ESInfoView
 from apps.elastic.views.view_count import CountDocsView
 
 from .views.view_aliase_list import AliasListView
@@ -11,6 +12,8 @@ from .views.view_simple_search import SimpleSearchView
 
 urlpatterns = [
 
+
+    url(r'^info/$', ESInfoView.as_view(), name='info'),
     url(r'^simple-search/$', SimpleSearchView.as_view(), name='simple-search'),
     url(r'^mapped-search/$', MappedSearchView.as_view(), name='mapped-search'),
     url(r'^alias-list/$', AliasListView.as_view(), name='alias-list'),
