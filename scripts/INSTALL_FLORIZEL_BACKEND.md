@@ -66,6 +66,16 @@ Run:
 ./manage.py loaddata scripts/initial_data/05_relation_templates.json
 ```
 
+Load data from ES:
+```commandline
+http://172.16.9.71:8001/attribute/attribute_reload_mapped_attributes_list
+```
+Then it's needed define entity attribute for every attribute (from search system)
+Make it here
+
+`http://172.16.9.71:8001/admin/attribute/attribute/`
+
+
 ### 3.4 Start and test server
 Check `backend/settings.py`
 
@@ -75,5 +85,5 @@ ALLOWED_HOSTS = [ %YOUR_HOST%
 ```
 Run:
 
-`./manage.py runserver %YOUR_HOST%:8000` 
+`./manage.py runserver %YOUR_HOST%:8000`
 
