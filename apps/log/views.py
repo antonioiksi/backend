@@ -15,34 +15,41 @@ class UserBinLogViewSet(viewsets.ReadOnlyModelViewSet):
     """
     Get list user search
     """
-    permission_classes = (PublicEndpoint,)
-    # permission_classes = (permissions.IsAuthenticated,)
-    # authentication_classes = (JWTAuthentication,)
+    # permission_classes = (PublicEndpoint,)
+    permission_classes = (permissions.IsAuthenticated,)
+    authentication_classes = (JWTAuthentication,)
     # serializer_class = LogSerializer
     # model = Log
 
     def list(self, request):
         user = self.request.user
-        queryset = Log.objects.filter(user=user, event__startswith='/elastic-bin/mapped-search/').order_by('-datetime')
+        queryset = Log.objects.filter(user=user, event__startswith='/data-bin-loader/').order_by('-datetime')
+
 
         res = []
         for log in queryset:
-            if 'jsonQuery' in log.query.keys():
-                jsonQuery = log.query['jsonQuery']
-                bin_id = log.event.split('/')[3]
-                try:
-                    bin_name = Bin.objects.get(pk=bin_id).name
-                except:
-                    bin_name = ''
+            try:
+                if 'jsonQuery' in log.query.keys():
+                    jsonQuery = log.query['jsonQuery']
+                    bin_id = log.event.split('/')[3]
+                    if bin_id == 32:
+                        print('test')
+                    try:
+                        bin_name = Bin.objects.get(pk=bin_id).name
+                    except:
+                        bin_name = ''
 
 
-                item = {
-                    'bin_id': bin_id,
-                    'bin_name': bin_name,
-                    'jsonQuery': jsonQuery,
-                    'datetime': log.datetime
-                }
-                res.append(item)
+                    item = {
+                        'event': log.event,
+                        'bin_id': bin_id,
+                        'bin_name': bin_name,
+                        'jsonQuery': jsonQuery,
+                        'datetime': log.datetime
+                    }
+                    res.append(item)
+            except:
+                print(log.query)
 
         # serializer = LogSerializer(queryset, many=True)
         # return Response(serializer.data, status=status.HTTP_200_OK)

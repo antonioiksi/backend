@@ -47,20 +47,43 @@ Run:
 
 ## 3 Install models and load initial data
 ### 3.1 Install models
-Run
+Run:
 `./manage.py migrate`
 
 
 ### 3.2 Create user 
-Run
+Run:
 `./manage.py createsuperuser` (usually admin)
 
 
 ### 3.3 Load initial data
-Run: 
-`./manage.py loaddata s`
+Run:
+```commandline
+./manage.py loaddata scripts/initial_data/01_attribute_mappingtype.json 
+./manage.py loaddata scripts/initial_data/02_entity_attributes.json 
+./manage.py loaddata scripts/initial_data/03_graph_model_drawing.json 
+./manage.py loaddata scripts/initial_data/04_model_templates.json 
+./manage.py loaddata scripts/initial_data/05_relation_templates.json
+```
 
 
- 
+### 3.4 Start and test server
+Check `backend/settings.py`
 
+```commandline
+ALLOWED_HOSTS = [ %YOUR_HOST%
+                 '127.0.0.1']
+```
+Run:
 
+`./manage.py runserver %YOUR_HOST%:8000`
+
+### 3.5 Loading attributes from ES and mapping it
+Load data from ES:
+```commandline
+http://172.16.9.71:8001/attribute/attribute_reload_mapped_attributes_list
+```
+Then it's needed define entity attribute for every attribute (from search system)
+Make it here
+
+`http://172.16.9.71:8001/admin/attribute/attribute/`
