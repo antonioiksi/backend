@@ -212,23 +212,3 @@ Get URLs info
 ```commandline
 ./manage.py show_urls
 ```
-
-# FRONTEND
-
-from the root of our project execute
-
-```commandline
-mkdir frontend && cd frontend
-create-react-app .
-
-```
-
-```commandline
-npm i --save bootstrap
-npm i --save react-bootstrap
-
-```
-add routes
-```commandline
-npm i --save react-router-dom
-```
