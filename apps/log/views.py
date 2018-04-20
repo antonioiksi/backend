@@ -23,7 +23,8 @@ class UserBinLogViewSet(viewsets.ReadOnlyModelViewSet):
 
     def list(self, request):
         user = self.request.user
-        queryset = Log.objects.filter(user=user, event__startswith='/data-bin-loader/').order_by('-datetime')
+        # queryset = Log.objects.filter(user=user, event__startswith='/data-bin-loader/').order_by('-datetime')
+        queryset = Log.objects.filter( event__startswith='/data-bin-loader/').order_by('-datetime')
 
 
         res = []
