@@ -2,6 +2,21 @@ from rest_framework import serializers
 
 from .models import Log
 
+class LogSearchSerializer(serializers.ModelSerializer):
+    query = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Log
+        fields = ('user', 'ip', 'datetime', 'query',)
+
+    def get_query(self, obj):
+        jsonQuery = None
+        if obj.query is not None and type(obj.query) is dict:
+            if 'jsonQuery' in obj.query.keys():
+                jsonQuery = obj.query['jsonQuery']
+
+        return jsonQuery
+
 
 class LogSerializer(serializers.ModelSerializer):
     query = serializers.SerializerMethodField()
