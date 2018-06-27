@@ -1,16 +1,18 @@
 import datetime
 
+from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render
 # Create your views here.
 from rest_framework import permissions, viewsets, status, generics, exceptions
 from rest_framework.response import Response
+from rest_framework.views import APIView
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from apps.auth_jwt.permissions import PublicEndpoint
 from apps.data_bin.models import Bin
 from apps.log.models import Log
-from apps.log.serializers import LogSerializer, LogSearchSerializer
+from apps.log.serializers import LogSerializer, LogSearchSerializer, LogUserSerializer
 
 
 class UserBinLogViewSet(viewsets.ReadOnlyModelViewSet):
@@ -122,4 +124,15 @@ class LogSearch(generics.ListAPIView):
 
         queryset = Log.objects.filter(**filter_params)
 
+        return queryset
+
+
+class UserListView(generics.ListAPIView):
+    permission_classes = (PublicEndpoint,)
+    serializer_class = LogUserSerializer
+    # permission_classes = (IsAdminUser,)
+    # ordering_fields = ('name',)
+
+    def get_queryset(self):
+        queryset = User.objects.all()
         return queryset

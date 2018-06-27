@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from rest_framework import serializers
 
 from .models import Log
@@ -49,3 +50,9 @@ class LogSimpleSerializer(serializers.Serializer):
         instance.event = validated_data.get('event', instance.event)
         instance.save()
         return instance
+
+
+class LogUserSerializer( serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'first_name', 'last_name', 'email',)

@@ -118,13 +118,13 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'backend',
-        'USER': 'backend',
-        'PASSWORD': 'backend',
-        'HOST': 'localhost',
+        'NAME': 'florizel_backend',
+        'USER': 'florizel_backend',
+        'PASSWORD': 'florizel_backend',
+        'HOST': '172.16.9.71',
         'PORT': '5432',
         'TEST': {
-            'NAME': 'test_backend',
+            'NAME': 'florizel_backend_test',
         },
     }
 }
